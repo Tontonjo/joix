@@ -47,5 +47,5 @@ docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 rm -f $0
 
 # Reboot to enable new login screen
-Echo "- Rebooting host"
+echo "- Rebooting host"
 reboot now
