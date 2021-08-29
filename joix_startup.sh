@@ -7,7 +7,7 @@ username=joix
 rootconfigfolder=/etc/joix
 rootdatafolder=/opt/joix
 
-## Starting Nextcloud Installation
+## Starting Joix Installation
 # Creating environnment and variables
 
 useradd $username
@@ -31,16 +31,17 @@ sleep 10
 
 ln -s $rootconfigfolder /root/joix_config
 ln -s $rootdatafolder /root/joix_data
-# Getting joix.yml
+
+# Getting joix.yml for deployment
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
 
 # Setting up login screen
-wget -O $rootconfigfolder/issue.sh https://raw.githubusercontent.com/Tontonjo/joix/main/issue.sh
-chmod 755 $rootconfigfolder/issue.sh
-echo "#!/bin/sh -e \n$rootconfigfolder/issue.sh \nexit 0" > /etc/rc.local
+wget -O /usr/local/bin/issue.sh https://raw.githubusercontent.com/Tontonjo/joix/main/issue.sh
+chmod 755 /usr/local/bin/issue.sh
+echo "#!/bin/sh -e \n/usr/local/bin/issue.sh \nexit 0" > /etc/rc.local
 chmod 755 /etc/rc.local
 
-# Starting joix using file
+# Starting Joix using file
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
 rm -f $0
