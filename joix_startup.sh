@@ -24,7 +24,7 @@ chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
 echo "Sleeping 10 seconds"
-sleep 10
+sleep 5
 
 # Getting joix.yml
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
@@ -32,4 +32,4 @@ wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/jo
 # Starting joix using file
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
-ln -s /root/joix_startup.sh $rootconfigfolder/joix_startup.sh
+rm -f $0
