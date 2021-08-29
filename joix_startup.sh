@@ -23,6 +23,7 @@ mkdir $rootconfigfolder
 chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
+echo "Sleeping 10 seconds"
 sleep 10
 
 # Getting joix.yml
