@@ -29,6 +29,12 @@ sleep 5
 # Getting joix.yml
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
 
+# Setting up login screen
+wget -O $rootconfigfolder/issue.sh https://raw.githubusercontent.com/Tontonjo/joix/main/issue.sh
+chmod 755 $rootconfigfolder/issue.sh
+echo "#!/bin/sh -e \n$rootconfigfolder/issue.sh \nexit 0" > /etc/rc.local
+chmod 755 /etc/rc.local
+
 # Starting joix using file
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
