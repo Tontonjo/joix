@@ -23,12 +23,7 @@ mkdir $rootconfigfolder
 chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
-printf "%s" "Waiting for connexion"
-while ! ping -c 1 -n -w 1 1.1.1.1 &> /dev/null
-do
-    printf "%c" "."
-done
-printf "\n%s\n"  "Online!"
+sleep 10
 
 # Getting joix.yml
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
