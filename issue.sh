@@ -12,5 +12,4 @@ echo "
  \________|\____/|__/__/\_ \
                           \/
 ---- Welcom to Joix OS ----
-Host IP: $ip
-" > /etc/issue
+Host IP: $ip" > /etc/issue
