@@ -1,18 +1,85 @@
 version: "2.1"
 services:
+  deluge:
+    image: ghcr.io/linuxserver/deluge
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/deluge:/config
+      - /opt/joix/downloads:/downloads
+    ports:
+      - 8112:8112
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped  
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    environment:
+      - WATCHTOWER_SCHEDULE="0 0 4 * * *"
+      - WATCHTOWER_CLEANUP="true"
+      - TZ="Europe/paris"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
   jellyfin:
     image: ghcr.io/linuxserver/jellyfin
     container_name: jellyfin
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Zurich
+      - TZ=Europe/paris
     volumes:
       - /etc/joix/jellyfin:/config
-      - /opt/joix/media:/media
+      - /opt/joix/media/:/media
     ports:
       - 8096:8096
       - 8920:8920 #optional
       - 7359:7359/udp #optional
       - 1900:1900/udp #optional
+    restart: unless-stopped
+  radarr:
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/radarr:/config
+      - /opt/joix/media/movies:/movies #optional
+      - /opt/joix/downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/sonarr:/config
+      - /opt/joix/media/tvshows:/tv #optional
+      - /opt/joix/downloads:/downloads #optional
+    ports:
+      -  8989:8989
+    restart: unless-stopped
+  lidarr:
+    image: ghcr.io/linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/lidarr:/config
+      - /opt/joix/media/music:/music #optional
+      - /opt/joix/downloads:/downloads #optional
+    ports:
+      - 8686:8686
     restart: unless-stopped
