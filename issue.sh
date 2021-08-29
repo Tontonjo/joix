@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Tonton Jo - 2021
-sleep 5
+echo "- Setting login screen"
+sleep 10
 ip=$(hostname -I | awk '{print $1}')
 
 echo "
