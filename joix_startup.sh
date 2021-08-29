@@ -21,18 +21,12 @@ mkdir $rootconfigfolder
 # Getting joix.yml
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
 
-# Creating .env file with default configuration:
-echo "PGID=$gid
-PUID=$uid
-ROOTCONFIGFOLDER=$rootconfigfolder
-ROOTDATAFOLDER=$rootdatafolder" > $rootconfigfolder/joix.env
-
 # Settings rights:
 chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
 # Starting joix using file
-docker-compose -f $rootconfigfolder/joix.yml --env-file $rootconfigfolder/joix.env -p joix up -d
+docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
 # Deleting this script
 rm -f $0
