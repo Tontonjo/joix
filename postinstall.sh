@@ -16,8 +16,8 @@ apt update -y
 apt install -y docker-ce docker-ce-cli containerd.io sudo
 
 # Download startup script and make it executable
-wget -O /root/startup.sh https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
-chmod +x /root/startup.sh
+wget -O /root/joix_startup.sh https://raw.githubusercontent.com/Tontonjo/joix/main/joix_startup.sh
+chmod +x /root/joix_startup.sh
 
 # Add script to be executed on boot then removed once ran
 echo "#!/bin/sh -e \n/root/startup.sh \nrm -f /etc/rc.local \nexit 0" > /etc/rc.local
