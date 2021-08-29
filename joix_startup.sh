@@ -23,9 +23,9 @@ mkdir $rootconfigfolder
 chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
-# Sleeping to leave some time for network
-echo "Sleeping 5 seconds"
-sleep 5
+# Sleeping to leave some time for network to be up
+echo "- Sleeping 10 seconds"
+sleep 10
 
 # Setting shortcut
 
@@ -45,4 +45,6 @@ docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
 rm -f $0
 
+# Reboot to enable new login screen
+Echo "- Rebooting host"
 reboot now
