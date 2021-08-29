@@ -4,12 +4,12 @@ services:
     image: ghcr.io/linuxserver/jellyfin
     container_name: jellyfin
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Zurich
     volumes:
-      - ${ROOTCONFIGFOLDER}/jellyfin:/config
-      - ${ROOTDATAFOLDER}:/data/media
+      - /etc/joix/jellyfin:/config
+      - /opt/joix/media:/media
     ports:
       - 8096:8096
       - 8920:8920 #optional
