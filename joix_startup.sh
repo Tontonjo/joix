@@ -39,3 +39,5 @@ chmod 755 /etc/rc.local
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
 rm -f $0
+
+reboot now
