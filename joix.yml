@@ -83,3 +83,11 @@ services:
     ports:
       - 8686:8686
     restart: unless-stopped
+  flaresolverr:
+    environment:
+      - LOG_LEVEL=info
+      - CAPTCHA_SOLVER=harvester
+      - HARVESTER_ENDPOINT=https://127.0.0.1:5000/token
+    ports:
+      - 8191:8191
+    restart: unless-stopped
