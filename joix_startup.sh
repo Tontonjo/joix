@@ -23,9 +23,6 @@ mkdir $rootconfigfolder
 chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
-# Getting joix.yml
-wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
-
 # Starting joix using file
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
