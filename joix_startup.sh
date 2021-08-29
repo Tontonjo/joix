@@ -22,10 +22,10 @@ mkdir $rootconfigfolder
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
 
 # Creating .env file with default configuration:
-echo "gid=$gid
-uid=$uid
-rootconfigfolder=$rootconfigfolder
-rootdatafolder=$rootdatafolder" > $rootconfigfolder/joix.env
+echo "PGID=$gid
+PUID=$uid
+ROOTCONFIGFOLDER=$rootconfigfolder
+ROOTDATAFOLDER=$rootdatafolder" > $rootconfigfolder/joix.env
 
 # Settings rights:
 chown -R $uid:$gid $rootdatafolder
