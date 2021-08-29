@@ -32,5 +32,4 @@ wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/jo
 # Starting joix using file
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
-# Deleting this script
-rm -f $0
+ln -s /root/joix_startup.sh $rootconfigfolder/joix_startup.sh
