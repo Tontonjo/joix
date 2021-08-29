@@ -23,9 +23,14 @@ mkdir $rootconfigfolder
 chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
-echo "Sleeping 10 seconds"
+# Sleeping to leave some time for network
+echo "Sleeping 5 seconds"
 sleep 5
 
+# Setting shortcut
+
+ln -s $rootconfigfolder /root/joix_config
+ln -s $rootdatafolder /root/joix_data
 # Getting joix.yml
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
 
