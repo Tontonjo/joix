@@ -23,6 +23,12 @@ chown -R $uid:$gid $rootconfigfolder
 # Getting joix.yml
 wget -O /etc/joix/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
 
+# Creating .env file with default configuration:
+echo "gid=$gid
+uid=$uid
+rootconfigfolder=$rootconfigfolder
+rootdatafolder=$rootdatafolder" > $rootconfigfolder/joix.env
+
 # Starting joix using file
 docker compose -f /opt/joix/joix.yml -p joix up -d
 
