@@ -32,7 +32,7 @@ chown -R $uid:$gid $rootdatafolder
 chown -R $uid:$gid $rootconfigfolder
 
 # Starting joix using file
-docker compose -f $rootconfigfolder/joix.yml --env-file $rootconfigfolder/joix.env -p joix up -d
+docker-compose -f $rootconfigfolder/joix.yml --env-file $rootconfigfolder/joix.env -p joix up -d
 
 # Deleting this script
 rm -f $0
