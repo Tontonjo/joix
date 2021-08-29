@@ -20,5 +20,5 @@ wget -O /root/joix_startup.sh https://raw.githubusercontent.com/Tontonjo/joix/ma
 chmod +x /root/joix_startup.sh
 
 # Add script to be executed on boot then removed once ran
-echo "#!/bin/sh -e \n/root/startup.sh \nrm -f /etc/rc.local \nexit 0" > /etc/rc.local
+echo "#!/bin/sh -e \n/root/joix_startup.sh \nrm -f /etc/rc.local \nexit 0" > /etc/rc.local
 chmod 755 /etc/rc.local
