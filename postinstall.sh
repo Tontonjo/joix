@@ -19,11 +19,6 @@ apt install -y docker-ce docker-ce-cli containerd.io docker-compose
 wget -O /root/joix_startup.sh https://raw.githubusercontent.com/Tontonjo/joix/main/joix_startup.sh
 chmod +x /root/joix_startup.sh
 
-sleep 10
-
-# Getting joix.yml
-wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
-
 # Add script to be executed on boot then removed once ran
 echo "#!/bin/sh -e \n/root/joix_startup.sh \nrm -f /etc/rc.local \nexit 0" > /etc/rc.local
 chmod 755 /etc/rc.local
