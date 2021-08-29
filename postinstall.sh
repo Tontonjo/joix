@@ -13,7 +13,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 
 # Installing docker
 apt update -y
-apt install -y docker-ce docker-ce-cli containerd.io sudo
+apt install -y docker-ce docker-ce-cli containerd.io
 
 # Download startup script and make it executable
 wget -O /root/joix_startup.sh https://raw.githubusercontent.com/Tontonjo/joix/main/joix_startup.sh
