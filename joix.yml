@@ -19,7 +19,7 @@ services:
     image: containrrr/watchtower
     container_name: watchtower
     environment:
-      - WATCHTOWER_SCHEDULE="0 0 4 * * *"
+      - WATCHTOWER_SCHEDULE=0 0 4 * * *
       - WATCHTOWER_CLEANUP="true"
       - TZ="Europe/paris"
     volumes:
