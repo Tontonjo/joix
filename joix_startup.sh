@@ -48,7 +48,8 @@ echo "workgroup = WORKGROUP
   comment = Joix Data
   path = $rootdatafolder
   read only = no
-  guest ok = no" > /etc/samba/smb.conf
+  guest ok = no
+  valid users = $username" > /etc/samba/smb.conf
 
 # Set password for SMB user 
 (echo $userpassword; echo $userpassword) | smbpasswd -a $username
