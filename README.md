@@ -25,7 +25,7 @@ This Will start the following apps in docker containers with preconfigured stora
 - Deluge         http://joix:8112  
 - Flaresolverr   http://joix:8191  
 - Watchtower     -> auto-update all apps at 04:00  
-- An SMB share to access your data
+- An SMB share to access your data at \\joix\joixdata
 
 ## Prerequisits that you probably match:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
