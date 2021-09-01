@@ -9,7 +9,8 @@ and to [Subscribe to my youtube channel](http://youtube.com/channel/UCnED3K6K5FD
 
 ## Disclaimer  
 This is provided as-is.  
-This implies there's no way to customize storages, targets or anything and that no consideration about anything else than what's provided: no security, checks, validation or anything else.  
+This implies there's no way to customize storages, targets or anything and no consideration about anything else than what's provided:  
+no security, checks, validation or anything else.  
 There's certainly a lot of things that can be improved - if you think so, please make a PR or dont complain.  
 ## WARNING:
 The iso is configured with simplicity in mind and is a "press enter" installation - No jokes.  
