@@ -44,6 +44,18 @@ chmod 755 /etc/rc.local
 # Starting Joix using file
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
+# Create SMB Share:
+echo "workgroup = WORKGROUP
+# Joix Data
+[joixdata]
+  comment = Joix Data
+  path = $rootdatafolder
+  read only = no
+  guest ok = no" > /etc/samba/smb.conf
+
+# Set empty password for user 
+smbpasswd -a $username -n
+
 rm -f $0
 
 # Reboot to enable new login screen
