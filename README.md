@@ -25,7 +25,9 @@ This Will start the following apps in docker containers with preconfigured stora
 - Deluge         http://joix:8112  
 - Flaresolverr   http://joix:8191  
 - Watchtower     -> auto-update all apps at 04:00  
-- An SMB share to access your data at \\joix\joixdata with the following content subfolders:
+- An SMB share to access your data at \\joix\joixdata
+- The following content folders:
+- - /etc/joix/
 - - /opt/joix/downloads
 - - /opt/joix/media/
 - - - /opt/joix/media/tvshows
