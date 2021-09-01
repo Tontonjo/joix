@@ -21,8 +21,9 @@ mkdir $rootdatafolder
 mkdir $rootconfigfolder
 
 # Settings rights:
-chown -R $uid:$gid $rootdatafolder
-chown -R $uid:$gid $rootconfigfolder
+chown -R $gid:$gid $rootdatafolder
+chown -R $uid:$uid $rootconfigfolder
+chmod -r 775 $rootdatafolder $rootconfigfolder
 
 # Sleeping to leave some time for network to be up
 echo "- Sleeping 10 seconds"
