@@ -61,8 +61,8 @@ echo "[global]
 # Settings rights:
 chown -R $gid:$gid $rootdatafolder
 chown -R $uid:$uid $rootconfigfolder
-chmod -r 775 $rootconfigfolder
-chmod -r 775 $rootdatafolder
+chmod -R 775 $rootconfigfolder
+chmod -R 775 $rootdatafolder
 
 rm -f $0
 
