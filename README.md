@@ -70,5 +70,5 @@ Configurations are stored in /etc/joix/
 Data are stored in /opt/joix/  
 
 ## What could be added or enhanced?  
-A lot of things, but do i want to?
-- Maybe i'd like to port this to raspberry tho
+- A lot of things  
+- Maybe i'd like to port this to raspberry    
