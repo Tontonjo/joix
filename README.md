@@ -39,7 +39,7 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - A working internet connexion with DNS and DHCP
 - A small tower / NUC or VM  with 
 - - LAN networking (debian supported hardware)
-- - a single drive of the biggest size you can afford to loose for storage
+- - A single drive of the biggest size you can afford to loose for storage
 
 ## Usage:
 
