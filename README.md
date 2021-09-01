@@ -10,13 +10,13 @@ So: be carfull on the hardware you use
 
 ## What's in the box?
 This Will start the following apps in docker containers with preconfigured storages and default ports
--Jellyfin       http://joix:8096  
--Sonarr         http://joix:8989  
--Radarr         http://joix:7878  
--Lidarr         http://joix:8686  
--Deluge         http://joix:8112  
--Flaresolverr   http://joix:8191  
--Watchtower     -> auto-update all apps at 04:00  
+- Jellyfin       http://joix:8096  
+- Sonarr         http://joix:8989  
+- Radarr         http://joix:7878  
+- Lidarr         http://joix:8686  
+- eluge         http://joix:8112  
+- Flaresolverr   http://joix:8191  
+- Watchtower     -> auto-update all apps at 04:00  
 
 ## Usage:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
