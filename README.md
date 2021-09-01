@@ -17,7 +17,8 @@ The iso is configured with simplicity in mind and is a "press enter" installatio
 Be carfull on the hardware you use  
 
 ## What's in the box?
-This Will start the following apps in docker containers with preconfigured storages and default ports ran with "joix" user
+This Will start the following:  
+Apps in docker containers with preconfigured storages and default ports ran with "joix" user:  
 - Jellyfin       http://joix:8096  /media  
 - Sonarr         http://joix:8989  /tv /downloads  
 - Radarr         http://joix:7878  /movies /downloads  
@@ -25,14 +26,16 @@ This Will start the following apps in docker containers with preconfigured stora
 - Deluge         http://joix:8112  /downloads  
 - Flaresolverr   http://joix:8191  
 - Watchtower     -> auto-update all apps at 04:00  
-- An SMB share to access your data at \\joix\joixdata
-- The following content folders:
-- - /etc/joix/
-- - /opt/joix/downloads
-- - /opt/joix/media/
-- - - /opt/joix/media/tvshows
-- - - /opt/joix/media/movies
-- - - /opt/joix/media/music
+
+An SMB share to access your data at \\joix\joixdata  
+
+The application will use the following content folders:
+- /etc/joix/
+- /opt/joix/downloads
+- /opt/joix/media/
+- - /opt/joix/media/tvshows
+- - /opt/joix/media/movies
+- - /opt/joix/media/music
 
 ## Prerequisits that you probably match:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
