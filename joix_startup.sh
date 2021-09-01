@@ -20,11 +20,6 @@ uid=$(id -u $username)
 mkdir $rootdatafolder
 mkdir $rootconfigfolder
 
-# Settings rights:
-chown -R $gid:$gid $rootdatafolder
-chown -R $uid:$uid $rootconfigfolder
-chmod -r 775 $rootdatafolder $rootconfigfolder
-
 # Sleeping to leave some time for network to be up
 echo "- Sleeping 10 seconds"
 sleep 10
@@ -57,6 +52,12 @@ echo "workgroup = WORKGROUP
 
 # Set password for SMB user 
 (echo $userpassword; echo $userpassword) | smbpasswd -a $username
+
+# Settings rights:
+chown -R $gid:$gid $rootdatafolder
+chown -R $uid:$uid $rootconfigfolder
+chmod -r 775 $rootconfigfolder
+chmod -r 775 $rootdatafolder
 
 rm -f $0
 
