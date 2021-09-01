@@ -1,6 +1,6 @@
 # Joix - simpliest media os server ever
 ## Disclaimer  
-This is provided as-is whith simplicity for beginner or testers in mind.
+This is provided as-is whith simplicity for beginner or testers in mind.  
 This implies there's no way to customize storages, targets or anything and that no consideration about anything else than what's provided: no security, checks, validation or anything else implied.  
 There's certainly a lot of things that can be improved - if you think so, please make a PR or dont complain.  
 ## WARNING:
