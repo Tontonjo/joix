@@ -18,11 +18,11 @@ So: be carfull on the hardware you use
 
 ## What's in the box?
 This Will start the following apps in docker containers with preconfigured storages and default ports ran with "joix" user
-- Jellyfin       http://joix:8096  
-- Sonarr         http://joix:8989  
-- Radarr         http://joix:7878  
-- Lidarr         http://joix:8686  
-- Deluge         http://joix:8112  
+- Jellyfin       http://joix:8096  /media  
+- Sonarr         http://joix:8989  /tv /downloads  
+- Radarr         http://joix:7878  /movies /downloads  
+- Lidarr         http://joix:8686  /music /downloads  
+- Deluge         http://joix:8112  /downloads  
 - Flaresolverr   http://joix:8191  
 - Watchtower     -> auto-update all apps at 04:00  
 - An SMB share to access your data at \\joix\joixdata
@@ -52,6 +52,7 @@ The installation and startup will not:
 Allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 ## After the installation you should:
+- Configure the applications to use the path specified at "What's in the box"
 - Set a static IP adress
 - Change the default passwords
 - Ensure your data are safe with backups
