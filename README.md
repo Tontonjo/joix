@@ -8,12 +8,12 @@ If you find this usefull, please think about
 and to [Subscribe to my youtube channel](http://youtube.com/channel/UCnED3K6K5FDUp-x_8rwpsZw?sub_confirmation=1)
 
 ## Disclaimer  
-This is provided as-is whith simplicity for beginner or testers in mind.  
-This implies there's no way to customize storages, targets or anything and that no consideration about anything else than what's provided: no security, checks, validation or anything else implied.  
+This is provided as-is.  
+This implies there's no way to customize storages, targets or anything and that no consideration about anything else than what's provided: no security, checks, validation or anything else.  
 There's certainly a lot of things that can be improved - if you think so, please make a PR or dont complain.  
 ## WARNING:
 The iso is configured with simplicity in mind and is a "press enter" installation - No jokes.  
-This means it will nuke the first hard drive the installer find to install Joix.  
+### This means it will nuke the first hard drive the installer find to install Joix.  
 Be carfull on the hardware you use  
 
 ## What's in the box?
