@@ -3,6 +3,7 @@
 # Tonton Jo - 2021
 sleep 10
 ip=$(hostname -I | awk '{print $1}')
+host=$(hostname)
 
 echo "
      ____.      .__        
@@ -12,4 +13,5 @@ echo "
  \________|\____/|__/__/\_ \
                           \/
 ---- Welcom to Joix OS ----
-Host IP: $ip" > /etc/issue
+Host IP:  $ip
+Hostname: $host" > /etc/issue
