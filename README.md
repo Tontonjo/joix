@@ -13,8 +13,8 @@ This implies there's no way to customize storages, targets or anything and that 
 There's certainly a lot of things that can be improved - if you think so, please make a PR or dont complain.  
 ## WARNING:
 The iso is configured with simplicity in mind and is a "press enter" installation - No jokes.  
-This means it will nuke the first hard drive the installer find to install Joix.
-So: be carfull on the hardware you use  
+This means it will nuke the first hard drive the installer find to install Joix.  
+Be carfull on the hardware you use  
 
 ## What's in the box?
 This Will start the following apps in docker containers with preconfigured storages and default ports ran with "joix" user
