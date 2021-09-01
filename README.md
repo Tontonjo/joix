@@ -41,8 +41,13 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - Wait for the magic to happen after 2 reboots
 - Configure all the apps you want / need
 
-The installation ans startup will not: 
+The installation and startup will not: 
 Allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
+
+## After the installation you should:
+- Set a static IP adress
+- Change the default passwords
+- Ensure your data are safe with backups
 
 ## Default password:
 You can ssh on your server with:
