@@ -45,7 +45,8 @@ chmod 755 /etc/rc.local
 docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
 
 # Create SMB Share:
-echo "workgroup = WORKGROUP
+echo "  [global]
+  workgroup = WORKGROUP
 # Joix Data
 [joixdata]
   comment = Joix Data
