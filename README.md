@@ -57,5 +57,9 @@ You can access smb share with:
 joix:joix  
 To change this password: smbpasswd -a joix
 
+## Storage
+Configurations are stored in /etc/joix/  
+Data are stored in /opt/joix/  
+
 ## What could be added?  
 A lot of things, but do i want to?
