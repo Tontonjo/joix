@@ -20,11 +20,16 @@ This Will start the following apps in docker containers with preconfigured stora
 
 ## Usage:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
+
+- Find a machine with sufficient hardware and storage
 - Read the WARNING please :-) -  or cry when you lose everything
 - Write ISO on USB key or load it on a VM
 - Boot on ISO and press enter to install Joix
 - Wait for the magic to happen after 2 reboots
 - Configure all the apps you want / need
+
+The installation ans startup will not: 
+Allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 ## What could be added?  
 A lot of things, but do i want to?
