@@ -55,7 +55,7 @@ echo "workgroup = WORKGROUP
   guest ok = no" > /etc/samba/smb.conf
 
 # Set password for SMB user 
-echo -e "$userpassword\n$userpassword" | smbpasswd -a -s $username
+(echo $userpassword; echo $userpassword) | smbpasswd -s $username
 
 rm -f $0
 
