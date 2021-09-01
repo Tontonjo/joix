@@ -4,6 +4,7 @@
 
 # Settings
 username=joix
+userpassword=joix
 rootconfigfolder=/etc/joix
 rootdatafolder=/opt/joix
 
@@ -53,8 +54,8 @@ echo "workgroup = WORKGROUP
   read only = no
   guest ok = no" > /etc/samba/smb.conf
 
-# Set empty password for user 
-smbpasswd -a $username -n
+# Set password for SMB user 
+echo -e "$userpassword\n$userpassword" | smbpasswd -a -s $username
 
 rm -f $0
 
