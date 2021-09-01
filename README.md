@@ -47,10 +47,10 @@ Allow you to change anything, but once it has booted, it's debian and docker so 
 ## Default password:
 You can ssh on your server with:
 root:joix  
-To change this password:  
+To change this password:  passwd root
 You can access smb share with:
 joix:joix  
-To change this password: smbpasswd -s joix
+To change this password: smbpasswd -a joix
 
 ## What could be added?  
 A lot of things, but do i want to?
