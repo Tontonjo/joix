@@ -3,8 +3,11 @@
 # Tonton Jo - 2021
 
 # Settings
+# Username used to create debian user and samba user
 username=joix
+# password used to create debian user and samba user
 userpassword=joix
+# Storage paths:
 rootconfigfolder=/etc/joix
 rootdatafolder=/opt/joix
 
