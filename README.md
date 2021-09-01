@@ -1,4 +1,13 @@
 # Joix - simpliest media server ever
+![screenshot](https://i.ibb.co/9HjkKJ6/Screenshot-2021-09-01-160921.png)  
+
+## Tonton Jo - 2021  
+Join me on Youtube: https://www.youtube.com/c/tontonjo  
+If you find this usefull, please think about  
+<a href="https://www.buymeacoffee.com/tontonjo"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"></a>
+and to [Subscribe to my youtube channel](http://youtube.com/channel/UCnED3K6K5FDUp-x_8rwpsZw?sub_confirmation=1)
+
+
 ## Disclaimer  
 This is provided as-is whith simplicity for beginner or testers in mind.  
 This implies there's no way to customize storages, targets or anything and that no consideration about anything else than what's provided: no security, checks, validation or anything else implied.  
