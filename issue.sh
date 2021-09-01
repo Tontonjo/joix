@@ -12,6 +12,6 @@ echo "
  /\__|    (  <_> )  |>    <
  \________|\____/|__/__/\_ \
                           \/
----- Welcom to Joix OS ----
+---- Welcome to Joix OS ----
 Host IP:  $ip
 Hostname: $host" > /etc/issue
