@@ -27,7 +27,7 @@ This Will start the following apps in docker containers with preconfigured stora
 - Watchtower     -> auto-update all apps at 04:00  
 - An SMB share to access your data
 
-## Prerequisits that you probably have:
+## Prerequisits that you probably match:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
 - A working internet connexion with DNS and DHCP
 - A small tower or VM you want to use with LAN networking (debian supported hardware) and a single drive of the biggest size you can afford to loose for storage
