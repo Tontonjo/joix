@@ -29,8 +29,8 @@ sleep 10
 
 # Setting shortcut
 
-ln -s $rootconfigfolder /root/joix_config
-ln -s $rootdatafolder /root/joix_data
+ln -s $rootconfigfolder /root/config
+ln -s $rootdatafolder /root/data
 
 # Getting joix.yml for deployment
 wget -O $rootconfigfolder/joix.yml https://raw.githubusercontent.com/Tontonjo/joix/main/joix.yml
