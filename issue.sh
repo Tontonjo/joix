@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Tonton Jo - 2021
-sleep 10
+sleep 15
 ip=$(hostname -I | awk '{print $1}')
 host=$(hostname)
 
