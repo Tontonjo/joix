@@ -24,8 +24,8 @@ mkdir $rootdatafolder
 mkdir $rootconfigfolder
 
 # Sleeping to leave some time for network to be up
-echo "- Sleeping 10 seconds"
-sleep 10
+echo "- Sleeping 15 seconds"
+sleep 15
 
 # Setting shortcut
 
