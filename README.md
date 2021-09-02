@@ -52,7 +52,8 @@ The installation and startup will not allow you to change anything, but once it 
 
 - Find a machine with sufficient hardware and storage
 - Read the WARNING please :-) -  or cry when you lose everything
-- Write ISO on USB key or load it on a VM
+- Wipe the drive you'll use for the installation if needed.
+- Write ISO on USB key with RUFUS or load it on a VM
 - Boot on ISO and press enter to install Joix
 - Wait for the magic to happen after 2 reboots
 - Configure all the apps you want / need
