@@ -46,7 +46,8 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - - LAN networking (debian supported hardware)
 - - A single drive of the biggest size you can afford to loose for storage
 
-## Usage:
+## Usage:  
+The installation and startup will not allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 - Find a machine with sufficient hardware and storage
 - Read the WARNING please :-) -  or cry when you lose everything
@@ -55,15 +56,19 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - Wait for the magic to happen after 2 reboots
 - Configure all the apps you want / need
 
-The installation and startup will not: 
-Allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
-
 ## After the installation you should:
 - Configure the applications to use the path specified at "What's in the box"
 - Set a static IP adress
 - Change the default passwords
 - Ensure your data are safe with backups
 
+## Add other containers
+If you want to add containers, i'd suggest you to edit  
+/etc/joix/joix.yml  
+and to run 
+```shell
+docker-compose -f $rootconfigfolder/joix.yml -p joix up -d
+```  
 ## Default password:
 You can ssh on your server with:
 root:joix  
@@ -71,10 +76,6 @@ To change this password:  passwd root
 You can access smb share with:
 joix:joix  
 To change this password: smbpasswd -a joix
-
-## Storage
-Configurations are stored in /etc/joix/  
-Data are stored in /opt/joix/  
 
 ## What could be added or enhanced?  
 - A lot of things  
