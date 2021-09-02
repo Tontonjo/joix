@@ -28,6 +28,7 @@ Apps in docker containers with preconfigured storages and default ports ran with
 - Radarr         http://joix:7878  /movies /downloads  
 - Lidarr         http://joix:8686  /music /downloads  
 - Deluge         http://joix:8112  /downloads  
+- Jackett        http://joix:9117
 - Flaresolverr   http://joix:8191  
 - Watchtower     -> auto-update all apps at 04:00  
 
