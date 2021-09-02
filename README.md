@@ -72,11 +72,9 @@ If you want to add containers, i'd suggest you to edit /etc/joix/joix.yml and to
 docker-compose -f /etc/joix/joix.yml -p joix up -d
 ```  
 ## Default password:
-You can ssh on your server with:
-root:joix  
+- You can ssh on your server with: root:joix  
 To change this password:  passwd root  
-You can access smb share with:  
-joix:joix  
+- You can access smb share with:  joix:joix  
 To change this password: smbpasswd -a joix
 
 ## What could be added or enhanced?  
