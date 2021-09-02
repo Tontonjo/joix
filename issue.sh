@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Tonton Jo - 2021
+# Sleep is to leave time for network to configure to set ip
 sleep 15
 ip=$(hostname -I | awk '{print $1}')
 host=$(hostname)
