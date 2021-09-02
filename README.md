@@ -13,10 +13,11 @@ This is provided as-is.
 This implies there's no way to customize storages, targets or anything and no consideration about anything else than what's provided:  
 no security, checks, validation or anything else.  
 There's certainly a lot of things that can be improved - if you think so, please make a PR or dont complain.  
-## WARNING:
+## WARNING - ATTENTION:  
 The iso is configured with simplicity in mind and is a "press enter" installation - No jokes.  
-### This means it will nuke the first hard drive the installer find to install Joix.  
-Be carfull on the hardware you use  
+### This means it will nuke the first hard drive the installer find to install Joix, be carfull on the hardware you use.  
+### L'installer de Joix va complétement effacer le premier disque trouvé, faites donc attention a votre matériel.  
+
 
 ## What's in the box?
 This Will start the following:  
