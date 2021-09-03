@@ -65,16 +65,17 @@ The installation and startup will not allow you to change anything, but once it 
 - Change the default passwords
 - Ensure your data are safe with backups
 
-## Add other containers
-If you want to add containers, i'd suggest you to edit /etc/joix/joix.yml and to run  
-```shell
-docker-compose -f /etc/joix/joix.yml -p joix up -d
-```  
 ## Default password:
 - You can ssh on your server with: root:joix  
 To change this password:  passwd root  
 - You can access smb share with:  joix:joix  
 To change this password: smbpasswd -a joix
+
+## Add other containers
+If you want to add containers, i'd suggest you to edit /etc/joix/joix.yml and to run  
+```shell
+docker-compose -f /etc/joix/joix.yml -p joix up -d
+```  
 
 ## What could be added or enhanced?  
 - A lot of things  
