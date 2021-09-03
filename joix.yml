@@ -106,3 +106,12 @@ services:
     ports:
       - 9117:9117
     restart: unless-stopped
+  navidrome:
+    image: deluan/navidrome
+    container_name: navidrome
+    volumes:
+      - /opt/joix/media/music:/music
+      - /etc/joix/navidrome:/data
+    ports:
+      - 4533:4533
+    restart: unless-stopped
