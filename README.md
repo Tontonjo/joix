@@ -24,6 +24,7 @@ The iso is configured with simplicity in mind and is a "press enter" installatio
 This Will start the following:  
 Apps in docker containers with preconfigured storages and default ports ran with "joix" user:  
 - Jellyfin       http://joix:8096  /media  
+- Navidrome      http://joix:4533  /music  
 - Sonarr         http://joix:8989  /tv /downloads  
 - Radarr         http://joix:7878  /movies /downloads  
 - Lidarr         http://joix:8686  /music /downloads  
