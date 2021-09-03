@@ -54,7 +54,6 @@ This is intended to be executed by joix.iso installer - the script is not tested
 The installation and startup will not allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 - Read the WARNING please :-) -  or cry when you lose everything
-- Wipe the drive you'll use for the installation if needed.
 - Write ISO on USB key with RUFUS or load it on a VM
 - Boot on ISO and press enter to install Joix
 - Wait for the magic to happen after 2 reboots
