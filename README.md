@@ -53,7 +53,6 @@ This is intended to be executed by joix.iso installer - the script is not tested
 ## Usage:  
 The installation and startup will not allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
-- Find a machine with sufficient hardware and storage
 - Read the WARNING please :-) -  or cry when you lose everything
 - Wipe the drive you'll use for the installation if needed.
 - Write ISO on USB key with RUFUS or load it on a VM
