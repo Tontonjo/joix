@@ -79,4 +79,6 @@ docker-compose -f /etc/joix/joix.yml -p joix up -d
 
 ## What could be added or enhanced?  
 - A lot of things  
+- backup / restore configuration
+- update tool
 - Maybe i'd like to port this to raspberry    
