@@ -2,6 +2,8 @@
 
 # Tonton Jo - 2021
 
+# Version 1.0
+
 # Settings
 # Username used to create debian user and samba user
 username=joix
