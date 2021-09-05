@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Tonton Jo - 2021
-
 # Version 1.0
 
 # Settings
