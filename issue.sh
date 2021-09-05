@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Tonton Jo - 2021
+# Version 1.0
+
 # Sleep to leave time for network
 sleep 15
 ip=$(hostname -I | awk '{print $1}')
