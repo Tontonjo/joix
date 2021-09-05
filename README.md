@@ -21,8 +21,7 @@ The iso is configured with simplicity in mind and is a "press enter" installatio
 
 
 ## What's in the box?
-This Will start the following:  
-Apps in docker containers with preconfigured storages and default ports ran with "joix" user:  
+This Will start the following apps in docker containers with preconfigured storages and default ports ran with "joix" user:  
 - Jellyfin       http://joix:8096  /media  
 - Navidrome      http://joix:4533  /music  
 - Sonarr         http://joix:8989  /tv /downloads  
@@ -50,7 +49,7 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - - LAN networking (debian supported hardware)
 - - A single drive of the biggest size you can afford to loose for storage
 - - - not tested on NVME drives or special hardware: only sata and vitual hard drive  
-## Usage:  
+## Installation:  
 The installation and startup will not allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 - Read the WARNING please :-) -  or cry when you lose everything
