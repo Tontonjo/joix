@@ -60,8 +60,8 @@ echo "[global]
 (echo $userpassword; echo $userpassword) | smbpasswd -a $username
 
 # Settings rights:
-chown -R $gid:$gid $rootdatafolder
-chown -R $uid:$uid $rootconfigfolder
+chown -R $uid:$gid $rootdatafolder
+chown -R $uid:$gid $rootconfigfolder
 chmod -R 775 $rootconfigfolder
 chmod -R 775 $rootdatafolder
 
