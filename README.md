@@ -47,7 +47,7 @@ The application will use the following content folders:
 ## Prerequisits that you probably match:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
 - A working internet connexion with DNS and DHCP
-- A small tower / NUC or VM  with x86/64 processor (not tested on ARM)
+- A small tower / NUC or VM  with x86/64 processor only
 - - LAN networking (debian supported hardware)
 - - A single drive of the biggest size you can afford to loose for storage
 - - - not tested on NVME drives or special hardware: only sata and vitual hard drive  
