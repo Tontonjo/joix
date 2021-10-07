@@ -64,10 +64,9 @@ The installation and startup will not allow you to change anything, but once it 
 ### Raspberry Pi  
 ```shell
 sudo wget -q https://raw.githubusercontent.com/Tontonjo/joix/main/pipostinstall.sh
-sudo bashpipostinstall.sh
 ```  
 ```shell
-sudo bashpipostinstall.sh
+sudo bash pipostinstall.sh
 ```
 
 ## After the installation you should:
