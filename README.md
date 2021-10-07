@@ -47,9 +47,9 @@ The application will use the following content folders:
 ## Prerequisits that you probably match:
 This is intended to be executed by joix.iso installer - the script is not tested with anything else.
 - A working internet connexion with DNS and DHCP
-- A small tower / NUC or VM  with x86/64 processor only
+- A small tower / NUC or VM  with x86/64 processor only or a raspberry pi (pi 3 tested)
 - - LAN networking (debian supported hardware)
-- - A single drive of the biggest size you can afford to loose for storage
+- - A single drive or SD card of the biggest size you can afford to loose for storage. Rapid storage is always a +
 - - - not tested on NVME drives or special hardware: only sata and vitual hard drive  
 ## Installation:  
 ### Computer or VM:
@@ -62,6 +62,12 @@ The installation and startup will not allow you to change anything, but once it 
 - Configure all the apps you want / need
 
 ### Raspberry Pi  
+
+- write an raspi OS lite image on your SD Card
+- Create a file named "ssh" in boot partition
+- boot your raspberry and find his IP adress
+- SSH in your Pi with default logi: pi - raspberry
+- Execute thoses commands to start Joix Installation  
 ```shell
 sudo wget -q https://raw.githubusercontent.com/Tontonjo/joix/main/pipostinstall.sh
 ```  
@@ -69,6 +75,10 @@ sudo wget -q https://raw.githubusercontent.com/Tontonjo/joix/main/pipostinstall.
 sudo bash pipostinstall.sh
 ```
 
+- If you want to try jellyfin:  
+```shell
+sudo docker start jellyfin
+```
 ## After the installation you should:
 - Configure the applications to use the path specified at "What's in the box"
 - Set a static IP adress
