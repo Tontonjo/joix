@@ -52,6 +52,7 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - - A single drive of the biggest size you can afford to loose for storage
 - - - not tested on NVME drives or special hardware: only sata and vitual hard drive  
 ## Installation:  
+### Computer or VM:
 The installation and startup will not allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 - Read the WARNING please :-) -  or cry when you lose everything
@@ -59,6 +60,11 @@ The installation and startup will not allow you to change anything, but once it 
 - Boot on ISO and press enter to install Joix
 - Wait for the magic to happen after 2 reboots
 - Configure all the apps you want / need
+
+### Raspberry Pi  
+```shell
+sudo wget -q https://raw.githubusercontent.com/Tontonjo/joix/main/pipostinstall.sh | sudo bash
+```
 
 ## After the installation you should:
 - Configure the applications to use the path specified at "What's in the box"
