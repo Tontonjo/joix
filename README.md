@@ -62,10 +62,9 @@ The installation and startup will not allow you to change anything, but once it 
 - Configure all the apps you want / need
 
 ### Raspberry Pi  
-
-- write an raspi OS lite image on your SD Card
+- Write an raspi OS lite image on your SD Card
 - Create a file named "ssh" in boot partition
-- boot your raspberry and find his IP adress
+- Boot your raspberry and find his IP adress
 - SSH in your Pi with default logi: pi - raspberry
 - Execute thoses commands to start Joix Installation  
 ```shell
@@ -73,12 +72,11 @@ sudo wget -q https://raw.githubusercontent.com/Tontonjo/joix/main/pipostinstall.
 ```  
 ```shell
 sudo bash pipostinstall.sh
-```
-
+```  
 - If you want to try jellyfin:  
 ```shell
 sudo docker start jellyfin
-```
+```  
 ## After the installation you should:
 - Configure the applications to use the path specified at "What's in the box"
 - Set a static IP adress
