@@ -4,7 +4,7 @@
 version: "2.1"
 services:
   deluge:
-    image: ghcr.io/linuxserver/deluge
+    image: lscr.io/linuxserver/deluge
     container_name: deluge
     environment:
       - PUID=1000
@@ -29,7 +29,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
   jellyfin:
-    image: ghcr.io/linuxserver/jellyfin
+    image: lscr.io/linuxserver/jellyfin
     container_name: jellyfin
     environment:
       - PUID=1000
@@ -45,7 +45,7 @@ services:
       - 1900:1900/udp #optional
     restart: unless-stopped
   radarr:
-    image: ghcr.io/linuxserver/radarr
+    image: lscr.io/linuxserver/radarr
     container_name: radarr
     environment:
       - PUID=1000
@@ -59,7 +59,7 @@ services:
       - 7878:7878
     restart: unless-stopped
   sonarr:
-    image: ghcr.io/linuxserver/sonarr
+    image: lscr.io/linuxserver/sonarr
     container_name: sonarr
     environment:
       - PUID=1000
@@ -73,7 +73,7 @@ services:
       -  8989:8989
     restart: unless-stopped
   lidarr:
-    image: ghcr.io/linuxserver/lidarr
+    image: lscr.io/linuxserver/lidarr
     container_name: lidarr
     environment:
       - PUID=1000
@@ -87,7 +87,7 @@ services:
       - 8686:8686
     restart: unless-stopped
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
+    image: lscr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
     environment:
       - LOG_LEVEL=info
@@ -97,7 +97,7 @@ services:
       - 8191:8191
     restart: unless-stopped
   jackett:
-    image: ghcr.io/linuxserver/jackett
+    image: lscr.io/linuxserver/jackett
     container_name: jackett
     environment:
       - PUID=1000
