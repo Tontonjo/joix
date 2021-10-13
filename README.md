@@ -10,6 +10,28 @@ and to [Subscribe to my youtube channel](http://youtube.com/channel/UCnED3K6K5FD
 
 You can watch a demonstration [here](https://www.youtube.com/watch?v=XqYi9IQea68)  
 
+## News:  
+### 13.10.2021
+Following some changes made by linuxserver.io on their registries and to ensure update of your containers, if you installed Joix before 13.10.2021, you should do one of the following:
+- Get the new version of joix.yml fro github and update yours in /etc/joix/joix.yml
+- Edit your /etc/joix/joix.yml and replace ghcr.io with lscr.io
+- - For debian:
+```shell
+nano /etc/joix/joix.yml
+```  
+or on raspberry pi:
+```shell
+docker-compose -f /etc/joix/joix.yml -p joix up -d
+```  
+- - For Raspi OS:
+```shell
+sudo nano /etc/joix/joix.yml
+```  
+or on raspberry pi:
+```shell
+sudo docker-compose -f /etc/joix/joix.yml -p joix up -d
+```  
+
 ## Disclaimer  
 Simplicity implies limitations:  
 This has not been extensively tested and is provided as-is.  
