@@ -88,7 +88,7 @@ services:
       - 8686:8686
     restart: unless-stopped
   flaresolverr:
-    image: lscr.io/flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
     environment:
       - LOG_LEVEL=info
