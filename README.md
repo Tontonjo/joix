@@ -14,7 +14,7 @@ You can watch a demonstration [here](https://www.youtube.com/watch?v=XqYi9IQea68
 ### 13.10.2021
 Following some changes made by linuxserver.io on their registries and to ensure update of your containers, if you installed Joix before 13.10.2021, you should do one of the following:
 - Get the new version of joix.yml fro github and update yours in /etc/joix/joix.yml
-- Edit your /etc/joix/joix.yml and replace ghcr.io with lscr.io
+- Edit your /etc/joix/joix.yml and replace ghcr.io with lscr.io (all but flaresolverr)
 - - For debian:
 ```shell
 nano /etc/joix/joix.yml
