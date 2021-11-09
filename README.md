@@ -16,25 +16,7 @@ You can watch a demonstration [here](https://www.youtube.com/watch?v=XqYi9IQea68
 
 ## News:  
 ### 13.10.2021
-Following some changes made by linuxserver.io on their registries and to ensure update of your containers, if you installed Joix before 13.10.2021, you should do one of the following:
-- Get the new version of joix.yml from github and update yours in /etc/joix/joix.yml
-- Edit your /etc/joix/joix.yml and replace ghcr.io with lscr.io (all but flaresolverr)
-- - For debian:
-```shell
-nano /etc/joix/joix.yml
-```  
-or on raspberry pi:
-```shell
-docker-compose -f /etc/joix/joix.yml -p joix up -d
-```  
-- - For Raspi OS:
-```shell
-sudo nano /etc/joix/joix.yml
-```  
-or on raspberry pi:
-```shell
-sudo docker-compose -f /etc/joix/joix.yml -p joix up -d
-```  
+- Following some changes made by linuxserver.io on their registries and to ensure update of your containers, if you installed Joix before 13.10.2021, you should update Joix following the guide below.
 
 ## Disclaimer  
 Simplicity implies limitations:  
@@ -115,8 +97,23 @@ To change this password:  passwd root
 - You can access smb share with:  joix:joix  
 To change this password: smbpasswd -a joix
 
+## Update Joix OS
+
+### Update your host (a reboot is recommanded after updating)
+```shell
+if [[ $(id -u) -ne 0 ]] ; then sudo apt-get update -y && sudo apt-get upgrade  -y && sudo apt-get dist-upgrade -y ; else apt-get update -y && apt-get upgrade  -y && apt-get dist-upgrade -y ; fi
+```  
+### Update Joix.yml file to latest
+```shell
+if [[ $(id -u) -ne 0 ]] ; then sudo wget -q -O etc/joix/joix.yml https://github.com/Tontonjo/joix/raw/main/joix.yml ; else wget -q -O etc/joix/joix.yml https://github.com/Tontonjo/joix/raw/main/joix.yml ; fi
+```  
+### Update stack:
+```shell
+if [[ $(id -u) -ne 0 ]] ; then sudo docker-compose -f /etc/joix/joix.yml -p joix up -d ; else docker-compose -f /etc/joix/joix.yml -p joix up -d ; fi
+```  
+
 ## Add other containers
-If you want to add containers, i'd suggest you to edit /etc/joix/joix.yml and to run  
+- If you want to add containers, i'd suggest you to edit /etc/joix/joix.yml and to run (dont update joix.yml then)
 ```shell
 docker-compose -f /etc/joix/joix.yml -p joix up -d
 ```  
