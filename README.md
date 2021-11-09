@@ -104,7 +104,7 @@ if [[ $(id -u) -ne 0 ]] ; then sudo apt-get update -y && sudo apt-get upgrade  -
 ```  
 ### Update Joix.yml file to latest
 ```shell
-if [[ $(id -u) -ne 0 ]] ; then sudo wget -q -O etc/joix/joix.yml https://github.com/Tontonjo/joix/raw/main/joix.yml ; else wget -q -O etc/joix/joix.yml https://github.com/Tontonjo/joix/raw/main/joix.yml ; fi
+if [[ $(id -u) -ne 0 ]] ; then sudo wget -q -O /etc/joix/joix.yml https://github.com/Tontonjo/joix/raw/main/joix.yml ; else wget -q -O /etc/joix/joix.yml https://github.com/Tontonjo/joix/raw/main/joix.yml ; fi
 ```  
 ### Update stack:
 ```shell
