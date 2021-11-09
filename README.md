@@ -41,7 +41,7 @@ This Will start the following apps in docker containers with preconfigured stora
 - Jackett        http://joix:9117
 - Flaresolverr   http://joix:8191  
 - Watchtower     -> auto-update all apps at 04:00  
-- An SMB share to access your data at "\\joix\joixdata"  
+- An SMB share to access your data at "\\\joix\joixdata"  
 
 The application will use the following content folders:
 - /etc/joix/
