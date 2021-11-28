@@ -92,7 +92,7 @@ sudo docker start jellyfin
 
 ## Default passwords:
 | OS | Service | username | password |  
-| ----------- | ----------- | ----------- |
+| ----------- | ----------- | ----------- | ----------- |
 | ISO debian | SSH | root  | joix |   
 | Raspberry  | SSH | pi  | raspberry |   
 | both | smb | joix  | joix | 
