@@ -59,7 +59,7 @@ This is intended to be executed by joix.iso installer - the script is not tested
 - - A single drive or SD card of the biggest size you can afford to loose for storage. Rapid storage is always a +
 - - - not tested on NVME drives or special hardware: only sata and vitual hard drive  
 ## Installation:  
-### Computer or VM:
+### Computer or VM using ISO:
 The installation and startup will not allow you to change anything, but once it has booted, it's debian and docker so you can do whatever you want.
 
 - Read the WARNING please :-) -  or cry when you lose everything
