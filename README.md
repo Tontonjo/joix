@@ -91,7 +91,7 @@ sudo docker start jellyfin
 - Ensure your data are safe with backups
 
 ## Default passwords:
-| OS | Service | username | password |
+| OS | Service | username | password |  
 | ----------- | ----------- | ----------- |
 | ISO debian | SSH | root  | joix |   
 | Raspberry  | SSH | pi  | raspberry |   
