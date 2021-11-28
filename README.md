@@ -96,15 +96,15 @@ sudo docker start jellyfin
 | ISO debian | SSH | root  | joix |   
 | Raspberry  | SSH | pi  | raspberry |   
 | both | smb | joix  | joix | 
-### ISO
-- You can ssh on your server with: root:joix  
-To change this password:  passwd root  
-### PI 
-- You can ssh on your server with the default PI login: pi:raspberry  
-To change this password:  sudo passwd root  
 
-- You can access smb share with:  joix:joix  
-To change this password: smbpasswd -a joix
+To change the default ssh password
+```shell
+if [[ $(id -u) -ne 0 ]] ; then sudo passwd pi ; else passwd root ; fi
+```  
+To change the smb password: 
+```shell
+if [[ $(id -u) -ne 0 ]] ; then sudo smbpasswd -a joix ; else smbpasswd -a joix ; fi
+```  
 
 ## Update Joix OS
 
