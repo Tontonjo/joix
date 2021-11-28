@@ -90,9 +90,19 @@ sudo docker start jellyfin
 - Change the default passwords
 - Ensure your data are safe with backups
 
-## Default password:
+## Default passwords:
+| OS | Service | username | password |
+| ----------- | ----------- | ----------- |
+| ISO debian | SSH | root  | joix |   
+| Raspberry  | SSH | pi  | raspberry |   
+| both | smb | joix  | joix | 
+### ISO
 - You can ssh on your server with: root:joix  
 To change this password:  passwd root  
+### PI 
+- You can ssh on your server with the default PI login: pi:raspberry  
+To change this password:  sudo passwd root  
+
 - You can access smb share with:  joix:joix  
 To change this password: smbpasswd -a joix
 
