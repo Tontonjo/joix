@@ -1,5 +1,5 @@
 # Joix
-## Simpliest media server ever - Press enter configuration  
+## Simpliest media server ever - Press enter installation  
 ![screenshot](https://i.ibb.co/9HjkKJ6/Screenshot-2021-09-01-160921.png)  
 
 ## Tonton Jo - 2021  
