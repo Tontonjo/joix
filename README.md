@@ -72,7 +72,7 @@ The installation and startup will not allow you to change anything, but once it 
 - Write an raspi OS lite image on your SD Card
 - Create a file named "ssh" in boot partition
 - Boot your raspberry and find his IP adress
-- SSH in your Pi with default logi: pi - raspberry
+- SSH in your Pi with default login: pi - raspberry
 - Execute thoses commands to start Joix Installation  
 ```shell
 sudo wget -q https://raw.githubusercontent.com/Tontonjo/joix/main/pipostinstall.sh
