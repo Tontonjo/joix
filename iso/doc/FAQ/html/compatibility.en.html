@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 4. Compatibility issues</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="choosing.en.html" title="Chapter 3. Choosing a Debian distribution" /><link rel="next" href="software.en.html" title="Chapter 5. Software available in the Debian system" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 4. Compatibility issues</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="choosing.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="software.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="compatibility"></a>Chapter 4. Compatibility issues</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="compatibility.en.html#arches">4.1. On what hardware architectures/systems does Debian GNU/Linux run?</a></span></dt><dt><span class="section"><a href="compatibility.en.html#kernels">4.2. What kernels does Debian GNU/Linux run?</a></span></dt><dt><span class="section"><a href="compatibility.en.html#otherdistribs">4.3. How compatible is Debian with other distributions of Linux?</a></span></dt><dt><span class="section"><a href="compatibility.en.html#otherunices">4.4. How source code compatible is Debian with other Unix systems?</a></span></dt><dt><span class="section"><a href="compatibility.en.html#otherpackages">4.5. Can I use Debian packages (".deb" files) on my Red Hat/Slackware/... Linux system? Can I use Red Hat packages (".rpm" files) on my Debian GNU/Linux system?</a></span></dt><dt><span class="section"><a href="compatibility.en.html#non-debian-programs">4.6. How should I install a non-Debian program?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="arches"></a>4.1. On what hardware architectures/systems does Debian GNU/Linux run?</h2></div></div></div><p>
+Debian GNU/Linux includes complete source-code for all of the included
+programs, so it should work on all systems which are supported by the Linux
+kernel; see the <a class="ulink" href="http://en.tldp.org/FAQ/Linux-FAQ/intro.html#DOES-LINUX-RUN-ON-MY-COMPUTER" target="_top">Linux
+FAQ</a> for details.
+</p><p>
+The current Debian GNU/Linux release, 10, contains a complete, binary
+distribution for the following architectures:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<span class="emphasis"><em>amd64</em></span>: this covers systems based on AMD 64bit CPUs with
+AMD64 extension and all Intel CPUs with EM64T extension, and a common 64bit
+userspace.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>arm64</em></span>: supports the latest 64-bit ARM-powered devices.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>armel</em></span>: little-endian ARM machines.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>armhf</em></span>: an alternative to armel for ARMv7 machines with
+hard-float.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>i386</em></span>: this covers systems based on Intel and compatible
+processors, including Intel's 386, 486, Pentium, Pentium Pro, Pentium II (both
+Klamath and Celeron), and Pentium III, and most compatible processors by AMD,
+Cyrix and others.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>ia64</em></span>: Intel IA-64 ("Itanium") computers.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>mips</em></span>: SGI's big-endian MIPS systems, Indy and Indigo2;
+<span class="emphasis"><em>mipsel</em></span>: little-endian MIPS machines, Digital DECstations.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>powerpc</em></span>: this covers some IBM/Motorola PowerPC machines,
+including the Apple Macintosh PowerMac models, and the CHRP and PReP open
+architecture machines.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>ppc64el</em></span>: 64-bit little-endian PowerPC port, supports
+several recent PowerPC/POWER processors.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>s390x</em></span>: 64-bit port for IBM System z machines, replaced
+s390.
+</p></li></ul></div><p>
+The development of binary distributions of Debian for
+<span class="emphasis"><em>hurd-i386</em></span> (for GNU Hurd kernel on i386 32-bit PCs),
+<span class="emphasis"><em>mipsel64</em></span> (for 64 bit MIPS in little-endian mode),
+<span class="emphasis"><em>powerpcspe</em></span> (port for the "Signal Processing Engine"
+hardware), <span class="emphasis"><em>sparc64</em></span> (for 64 bit SPARC processors),
+<span class="emphasis"><em>sh</em></span> (for Hitachi SuperH processors), and
+<span class="emphasis"><em>x32</em></span> (for amd64/x86_64 CPUs using 32-bit pointers) is
+currently underway.
+</p><p>
+Support for the <span class="emphasis"><em>m68k</em></span> architecture was dropped in the Etch
+(Debian 4.0) release, because it did not meet the criteria set by the Debian
+Release Managers.  This architecture covers Amigas and ATARIs having a Motorola
+680x0 processor for x&gt;=2; with MMU.  However, the port is still active and
+available for installation even if not a part of this official stable release
+and might be reactivated for future releases.
+</p><p>
+Support for the <span class="emphasis"><em>hppa</em></span> (Hewlett-Packard's PA-RISC machines)
+and <span class="emphasis"><em>alpha</em></span> (Compaq/Digital's Alpha systems) were dropped in
+the Squeeze (Debian 6.0) release for similar reasons.  The
+<span class="emphasis"><em>arm</em></span> was dropped too in this release, as it was superseded
+by the <span class="emphasis"><em>armel</em></span> architecture.
+</p><p>
+Support for the 32-bit <span class="emphasis"><em>s390</em></span> port (s390) was discontinued
+and replaced with s390x in Jessie (Debian 8).  In addition, the ports to IA-64
+and Sparc had to be removed from this release due to insufficient developer
+support.
+</p><p>
+For more information on the available ports see the <a class="ulink" href="https://www.debian.org/ports/" target="_top">ports pages at the website</a>.
+</p><p>
+For further information on booting, partitioning your drive, enabling PCMCIA
+(PC Card) devices and similar issues please follow the instructions given in
+the Installation Manual, which is available from our WWW site at <a class="ulink" href="https://www.debian.org/releases/stable/installmanual" target="_top">https://www.debian.org/releases/stable/installmanual</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="kernels"></a>4.2. What kernels does Debian GNU/Linux run?</h2></div></div></div><p>
+Beside Linux, Debian provides a complete, binary distribution for the following
+operating system kernels:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+FreeBSD: provided through the <span class="emphasis"><em>kfreebsd-amd64</em></span> and
+<span class="emphasis"><em>kfreebsd-i386</em></span> ports, for 64-bit PCs and 32-bit PCs
+respectively.  These ports were first released in Debian 6.0 Squeeze as a
+<span class="emphasis"><em>technology preview</em></span>.  However they were not part of the
+Debian 8 Jessie release.
+</p></li></ul></div><p>
+In addition to these, work is in progress on the following adaptations:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<span class="emphasis"><em>avr32</em></span>, port to Atmel's 32-bit RISC architecture,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>hurd-i386</em></span>, a port for 32-bit PC.  This port will use GNU
+Hurd, the new operating system being put together by the GNU group,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>sh</em></span>, port to Hitachi SuperH processors.
+</p></li></ul></div><p>
+There were attempts to port the distribution to the NetBSD kernel, providing
+<span class="emphasis"><em>netbsd-i386</em></span> (for 32-bit PCs) and
+<span class="emphasis"><em>netbsd-alpha</em></span> (for Alpha machines) but these ports were
+never released and are currently abandoned.
+</p><p>
+For more information on the available ports see the <a class="ulink" href="https://www.debian.org/ports/" target="_top">ports pages at the website</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="otherdistribs"></a>4.3. How compatible is Debian with other distributions of Linux?</h2></div></div></div><p>
+Debian developers communicate with other Linux distribution creators in an
+effort to maintain binary compatibility across Linux distributions.
+<a href="#ftn.idm475" class="footnote" id="idm475"><sup class="footnote">[1]</sup></a> Most commercial Linux products run as well
+under Debian as they do on the system upon which they were built.
+</p><p>
+Debian GNU/Linux adheres to the <a class="ulink" href="http://www.pathname.com/fhs" target="_top">Linux
+Filesystem Hierarchy Standard</a>.  However, there is room for
+interpretation in some of the rules within this standard, so there may be
+slight differences between a Debian system and other Linux systems.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="otherunices"></a>4.4. How source code compatible is Debian with other Unix systems?</h2></div></div></div><p>
+For most applications Linux source code is compatible with other Unix systems.
+It supports almost everything that is available in System V Unix systems and
+the free and commercial BSD-derived systems.  However in the Unix business such
+claim has nearly no value because there is no way to prove it.  In the software
+development area complete compatibility is required instead of compatibility in
+"about most" cases.  So years ago the need for standards arose, and nowadays
+POSIX.1 (IEEE Standard 1003.1-1990) is one of the major standards for source
+code compatibility in Unix-like operating systems.
+</p><p>
+Linux is intended to adhere to POSIX.1, but the POSIX standards cost real money
+and the POSIX.1 (and FIPS 151-2) certification is quite expensive; this made it
+more difficult for the Linux developers to work on complete POSIX conformance.
+The certification costs make it unlikely that Debian will get an official
+conformance certification even if it completely passed the validation suite.
+(The validation suite is now freely available, so it is expected that more
+people will work on POSIX.1 issues.)
+</p><p>
+Unifix GmbH (Braunschweig, Germany) developed a Linux system that has been
+certified to conform to FIPS 151-2 (a superset of POSIX.1).  This technology
+was available in Unifix' own distribution called Unifix Linux 2.0 and in
+Lasermoon's Linux-FT.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="otherpackages"></a>4.5. Can I use Debian packages (".deb" files) on my Red Hat/Slackware/... Linux system? Can I use Red Hat packages (".rpm" files) on my Debian GNU/Linux system?</h2></div></div></div><p>
+Different Linux distributions use different package formats and different
+package management programs.
+</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="strong"><strong>You probably can:</strong></span></span></dt><dd><p>
+A program to unpack a Debian package onto a Linux host that is been built from
+a `foreign' distribution is available, and will generally work, in the sense
+that files will be unpacked.  The converse is probably also true, that is, a
+program to unpack a Red Hat or Slackware package on a host that is based on
+Debian GNU/Linux will probably succeed in unpacking the package and placing
+most files in their intended directories.  This is largely a consequence of the
+existence (and broad adherence to) the Linux Filesystem Hierarchy Standard.
+The <a class="ulink" href="https://packages.debian.org/alien" target="_top">Alien</a> package is used
+to convert between different package formats.
+</p></dd><dt><span class="term"><span class="strong"><strong>You probably do not want to:</strong></span></span></dt><dd><p>
+Most package managers write administrative files when they are used to unpack
+an archive.  These administrative files are generally not standardized.
+Therefore, the effect of unpacking a Debian package on a `foreign' host will
+have unpredictable (certainly not useful) effects on the package manager on
+that system.  Likewise, utilities from other distributions might succeed in
+unpacking their archives on Debian systems, but will probably cause the Debian
+package management system to fail when the time comes to upgrade or remove some
+packages, or even simply to report exactly what packages are present on a
+system.
+</p></dd><dt><span class="term"><span class="strong"><strong>A better way:</strong></span></span></dt><dd><p>
+The Linux File System Standard (and therefore Debian GNU/Linux) requires that
+subdirectories under <code class="literal">/usr/local/</code> be entirely under the
+user's discretion.  Therefore, users can unpack `foreign' packages into this
+directory, and then manage their configuration, upgrade and removal
+individually.
+</p></dd></dl></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="non-debian-programs"></a>4.6. How should I install a non-Debian program?</h2></div></div></div><p>
+Files under the directory <code class="literal">/usr/local/</code> are not under the
+control of the Debian package management system.  Therefore, it is good
+practice to place the source code for your program in /usr/local/src/.  For
+example, you might extract the files for a package named "foo.tar" into the
+directory <code class="literal">/usr/local/src/foo</code>.  After you compile them, place
+the binaries in <code class="literal">/usr/local/bin/</code>, the libraries in
+<code class="literal">/usr/local/lib/</code>, and the configuration files in
+<code class="literal">/usr/local/etc/</code>.
+</p><p>
+If your programs and/or files really must be placed in some other directory,
+you could still store them in <code class="literal">/usr/local/</code>, and build the
+appropriate symbolic links from the required location to its location in
+<code class="literal">/usr/local/</code>, e.g., you could make the link
+</p><pre class="screen">
+ln -s /usr/local/bin/foo /usr/bin/foo
+</pre><p>
+In any case, if you obtain a package whose copyright allows redistribution, you
+should consider making a Debian package of it, and uploading it for the Debian
+system.  Guidelines for becoming a package developer are included in the Debian
+Policy manual (see <a class="xref" href="support.en.html#debiandocs" title="12.1. What other documentation exists on and for a Debian system?">Section 12.1, “What other documentation exists on and for a Debian system?”</a>).
+</p></div><div class="footnotes"><br /><hr width="100" align="left" /><div id="ftn.idm475" class="footnote"><p><a href="#idm475" class="para"><sup class="para">[1] </sup></a> The <a class="ulink" href="https://wiki.linuxfoundation.org/lsb/start/" target="_top">Linux Standard
+Base</a> is a specification for allowing the same binary package to be used
+on multiple distributions.  After Jessie (Debian 8) was released, Debian <a class="ulink" href="https://sources.debian.org/src/lsb/9.20170808/debian/README.Debian/" target="_top">abandoned</a>
+the pursuit of LSB compatibility.  See this <a class="ulink" href="https://lists.debian.org/4526217.myWFlvm1rM@gyllingar" target="_top">July 3, 2015
+message from Didier Raboud</a> and the following discussion for background
+information.  </p></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="choosing.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="software.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 3. Choosing a Debian distribution </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 5. Software available in the Debian system</td></tr></table></div></body></html>

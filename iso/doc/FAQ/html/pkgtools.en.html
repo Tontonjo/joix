@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 8. The Debian package management tools</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="pkg-basics.en.html" title="Chapter 7. Basics of the Debian package management system" /><link rel="next" href="uptodate.en.html" title="Chapter 9. Keeping your Debian system up-to-date" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 8. The Debian package management tools</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pkg-basics.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="uptodate.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="pkgtools"></a>Chapter 8. The Debian package management tools</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="pkgtools.en.html#pkgprogs">8.1. What programs does Debian provide for managing its packages?</a></span></dt><dd><dl><dt><span class="section"><a href="pkgtools.en.html#dpkg">8.1.1. dpkg</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#apt-get">8.1.2. APT</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#aptitude">8.1.3. aptitude</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#synaptic">8.1.4. synaptic</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#tasksel">8.1.5. tasksel</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#dpkg-extra">8.1.6. Other package management tools</a></span></dt></dl></dd><dt><span class="section"><a href="pkgtools.en.html#updaterunning">8.2. Debian claims to be able to update a running program; how is this accomplished?</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#whatpackages">8.3. How can I tell what packages are already installed on a Debian system?</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#listfiles">8.4. How do I display the files of an installed package?</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#filesearch">8.5. How can I find out what package produced a particular file?</a></span></dt><dt><span class="section"><a href="pkgtools.en.html#datapackages">8.6. Why is `foo-data' not removed when I uninstall `foo'? How do I make sure old unused library-packages get purged?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="pkgprogs"></a>8.1. What programs does Debian provide for managing its packages?</h2></div></div></div><p>
+There are multiple tools that are used to manage Debian packages, from graphic
+or text-based interfaces to the low level tools used to install packages.  All
+the available tools rely on the lower level tools to properly work and are
+presented here in decreasing complexity level.
+</p><p>
+It is important to understand that the higher level package management tools
+such as <span class="command"><strong>aptitude</strong></span> or <span class="command"><strong>synaptic</strong></span> rely on
+<span class="command"><strong>apt</strong></span> which, itself, relies on <span class="command"><strong>dpkg</strong></span> to
+manage the packages in the system.
+</p><p>
+See <a class="ulink" href="https://www.debian.org/doc/manuals/debian-reference/ch02.en.html" target="_top">Chapter
+2.  Debian package management</a> of the <a class="ulink" href="https://www.debian.org/doc/manuals/debian-reference/" target="_top">Debian
+reference</a> for more information about the Debian package management
+utilities.  This document is available in various languages and formats, see
+<a class="ulink" href="https://www.debian.org/doc/user-manuals#quick-reference" target="_top">the Debian
+Reference entry in the DDP Users' Manuals overview</a>.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="dpkg"></a>8.1.1. dpkg</h3></div></div></div><p>
+This is the main package management program.  <span class="command"><strong>dpkg</strong></span> can be
+invoked with many options.  Some common uses are:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Find out all the options: <code class="literal">dpkg --help</code>.
+</p></li><li class="listitem"><p>
+Print out the control file (and other information) for a specified package:
+<code class="literal">dpkg --info foo_VVV-RRR.deb</code>.
+</p></li><li class="listitem"><p>
+Install a package (including unpacking and configuring) onto the file system of
+the hard disk: <code class="literal">dpkg --install foo_VVV-RRR.deb</code>.
+</p></li><li class="listitem"><p>
+Unpack (but do not configure) a Debian archive into the file system of the hard
+disk: <code class="literal">dpkg --unpack foo_VVV-RRR.deb</code>.  Note that this
+operation does <span class="emphasis"><em>not</em></span> necessarily leave the package in a
+usable state; some files may need further customization to run properly.  This
+command removes any already-installed version of the program and runs the
+preinst (see <a class="xref" href="pkg-basics.en.html#maintscripts" title="7.6. What is a Debian preinst, postinst, prerm, and postrm script?">Section 7.6, “What is a Debian preinst, postinst, prerm, and postrm script?”</a>) script associated with the
+package.
+</p></li><li class="listitem"><p>
+Configure a package that already has been unpacked: <code class="literal">dpkg --configure
+foo</code>.  Among other things, this action runs the postinst (see <a class="xref" href="pkg-basics.en.html#maintscripts" title="7.6. What is a Debian preinst, postinst, prerm, and postrm script?">Section 7.6, “What is a Debian preinst, postinst, prerm, and postrm script?”</a>) script associated with the package.  It also updates
+the files listed in the <code class="literal">conffiles</code> for this package.  Notice
+that the 'configure' operation takes as its argument a package name (e.g.,
+foo), <span class="emphasis"><em>not</em></span> the name of a Debian archive file (e.g.,
+foo_VVV-RRR.deb).
+</p></li><li class="listitem"><p>
+Extract a single file named "blurf" (or a group of files named "blurf*") from a
+Debian archive: <code class="literal">dpkg --fsys-tarfile foo_VVV-RRR.deb | tar -xf -
+'blurf*'</code>.
+</p></li><li class="listitem"><p>
+Remove a package (but not its configuration files): <code class="literal">dpkg --remove
+foo</code>.
+</p></li><li class="listitem"><p>
+Remove a package (including its configuration files): <code class="literal">dpkg --purge
+foo</code>.
+</p></li><li class="listitem"><p>
+List the installation status of packages containing the string (or regular
+expression) "foo*": <code class="literal">dpkg --list 'foo*'</code>.
+</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="apt-get"></a>8.1.2. APT</h3></div></div></div><p>
+APT is the <span class="emphasis"><em>Advanced Package Tool</em></span>, an advanced interface to
+the Debian packaging system which provides the <span class="command"><strong>apt-get</strong></span>
+program.  It provides commandline tools for searching and managing packages,
+and for querying information about them, as well as low-level access to all
+features of the libapt-pkg library.  For more information, see the User's Guide
+in <code class="literal">/usr/share/doc/apt-doc/guide.html/index.html</code> (you will
+have to install the <code class="systemitem">apt-doc</code><a id="idm1380" class="indexterm"></a> package).
+</p><p>
+Starting with Debian Jessie, some frequently used <span class="command"><strong>apt-get</strong></span>
+and <span class="command"><strong>apt-cache</strong></span> commands have an equivalent via the new
+<span class="command"><strong>apt</strong></span> binary.  This means some popular commands like
+<span class="command"><strong>apt-get update</strong></span>, <span class="command"><strong>apt-get install</strong></span>,
+<span class="command"><strong>apt-get remove</strong></span>, <span class="command"><strong>apt-cache search</strong></span>, or
+<span class="command"><strong>apt-cache show</strong></span> now can also be called simply via
+<span class="command"><strong>apt</strong></span>, say <span class="command"><strong>apt update</strong></span>, <span class="command"><strong>apt
+install</strong></span>, <span class="command"><strong>apt remove</strong></span>, <span class="command"><strong>apt
+search</strong></span>, or <span class="command"><strong>apt show</strong></span>.  The following is an overview
+of the old and new commands:
+</p><pre class="screen">
+ apt-get update             -&gt;  apt update
+ apt-get upgrade            -&gt;  apt upgrade
+ apt-get dist-upgrade       -&gt;  apt full-upgrade
+ apt-get install package    -&gt;  apt install package
+ apt-get remove package     -&gt;  apt remove package
+ apt-get autoremove         -&gt;  apt autoremove
+ apt-cache search string    -&gt;  apt search string
+ apt-cache policy package   -&gt;  apt list -a package
+ apt-cache show package     -&gt;  apt show package
+ apt-cache showpkg package  -&gt;  apt show -a package
+</pre><p>
+The <span class="command"><strong>apt</strong></span> tool merges functionality of apt-get and apt-cache
+and by default has a fancier colored output format, making it more pleasant for
+humans.  For usage in scripts or advanced use cases, apt-get is still
+preferable or needed.
+</p><p>
+<span class="command"><strong>apt-get</strong></span> provides a simple way to retrieve and install
+packages from multiple sources using the command line.  Unlike
+<span class="command"><strong>dpkg</strong></span>, <span class="command"><strong>apt-get</strong></span> does not understand .deb
+files, it works with the packages proper name and can only install .deb
+archives from a source specified in <code class="filename">/etc/apt/sources.list</code>.
+<span class="command"><strong>apt-get</strong></span> will call <span class="command"><strong>dpkg</strong></span> directly after
+downloading the .deb archives<a href="#ftn.idm1408" class="footnote" id="idm1408"><sup class="footnote">[5]</sup></a> from
+the configured sources.
+</p><p>
+Some common ways to use <span class="command"><strong>apt-get</strong></span> are:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+To update the list of packages known by your system, you can run:
+</p><pre class="screen">
+apt update
+</pre><p>
+(you should execute this regularly to update your package lists)
+</p></li><li class="listitem"><p>
+To install the <em class="replaceable"><code>foo</code></em> package and all its dependencies,
+run:
+</p><pre class="screen">
+apt install foo
+</pre></li><li class="listitem"><p>
+To remove the foo package from your system, run:
+</p><pre class="screen">
+apt remove foo
+</pre></li><li class="listitem"><p>
+To remove the foo package and its configuration files from your system, run:
+</p><pre class="screen">
+apt purge foo
+</pre></li><li class="listitem"><p>
+To list all packages for which newer versions are available, run:
+</p><pre class="screen">
+apt list --upgradable
+</pre></li><li class="listitem"><p>
+To upgrade all the packages on your system (without installing extra packages
+or removing packages), run:
+</p><pre class="screen">
+apt upgrade
+</pre></li><li class="listitem"><p>
+To upgrade all the packages on your system, and, if needed for a package
+upgrade, installing extra packages or removing packages, run:
+</p><pre class="screen">
+apt full-upgrade
+</pre><p>
+(The command <code class="literal">upgrade</code> keeps a package at its installed
+obsolete version if upgrading would need an extra package to be installed, for
+a new dependency to be satisfied.  The <code class="literal">full-upgrade</code> command
+is less conservative.)
+</p></li></ul></div><p>
+Note that you must be logged in as root to perform any commands that modify
+packages.
+</p><p>
+Note that <span class="command"><strong>apt-get</strong></span> now also installs recommended packages as
+default, and thanks to its robustness it's the preferred program for package
+management from console to perform system installation and major system
+upgrades.
+</p><p>
+The apt tool suite also includes the <span class="command"><strong>apt-cache</strong></span> tool to query
+the package lists.  You can use it to find packages providing specific
+functionality through simple text or regular expression queries and through
+queries of dependencies in the package management system.  Some common ways to
+use <span class="command"><strong>apt-cache</strong></span> are:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+To find packages whose description contain <em class="replaceable"><code>word</code></em>:
+</p><pre class="screen">
+apt search <em class="replaceable"><code>word</code></em>
+</pre></li><li class="listitem"><p>
+To print the detailed information of a package:
+</p><pre class="screen">
+apt show <em class="replaceable"><code>package</code></em>
+</pre></li><li class="listitem"><p>
+To print the packages a given package depends on:
+</p><pre class="screen">
+apt-cache depends <em class="replaceable"><code>package</code></em>
+</pre></li><li class="listitem"><p>
+To print detailed information on the versions available for a package and the
+packages that reverse-depends on it:
+</p><pre class="screen">
+apt-cache showpkg <em class="replaceable"><code>package</code></em>
+</pre></li></ul></div><p>
+For more information, install the <code class="systemitem">apt</code><a id="idm1466" class="indexterm"></a>
+package and read
+<span class="citerefentry"><span class="refentrytitle">apt</span>(8)</span>,
+<span class="citerefentry"><span class="refentrytitle">apt-get</span>(8)</span>,
+<span class="citerefentry"><span class="refentrytitle">sources.list</span>(5)</span>
+and install the <code class="systemitem">apt-doc</code><a id="idm1479" class="indexterm"></a> package and
+read <code class="filename">/usr/share/doc/apt-doc/guide.html/index.html</code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="aptitude"></a>8.1.3. aptitude</h3></div></div></div><p>
+<span class="command"><strong>aptitude</strong></span> is a package manager for Debian GNU/Linux systems
+that provides a frontend to the apt package management infrastructure.
+<span class="command"><strong>aptitude</strong></span> is a text-based interface using the curses library.
+Actions may be performed from a visual interface or from the command-line.
+</p><p>
+<span class="command"><strong>aptitude</strong></span> can be used to perform management tasks in a fast
+and easy way.  It allows the user to view the list of packages and to perform
+package management tasks such as installing, upgrading, and removing packages.
+</p><p>
+<span class="command"><strong>aptitude</strong></span> provides the functionality of
+<span class="command"><strong>apt-get</strong></span>, as well as many additional features:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<span class="command"><strong>aptitude</strong></span> offers easy access to all versions of a package.
+</p></li><li class="listitem"><p>
+<span class="command"><strong>aptitude</strong></span> makes it easy to keep track of obsolete software by
+listing it under "Obsolete and Locally Created Packages".
+</p></li><li class="listitem"><p>
+<span class="command"><strong>aptitude</strong></span> includes a fairly powerful system for searching
+particular packages and limiting the package display.  Users familiar with
+<span class="command"><strong>mutt</strong></span> will pick up quickly, as <span class="command"><strong>mutt</strong></span> was
+the inspiration for the expression syntax.
+</p></li><li class="listitem"><p>
+<span class="command"><strong>aptitude</strong></span> can be used to install the predefined tasks
+available.  For more information see <a class="xref" href="pkgtools.en.html#tasksel" title="8.1.5. tasksel">Section 8.1.5, “tasksel”</a>.
+</p></li><li class="listitem"><p>
+<span class="command"><strong>aptitude</strong></span> in full screen mode has <span class="command"><strong>su</strong></span>
+functionality embedded and can be run by a normal user.  It will call
+<span class="command"><strong>su</strong></span> (and ask for the root password, if any) when you really
+need administrative privileges.
+</p></li></ul></div><p>
+You can use <span class="command"><strong>aptitude</strong></span> through a visual interface (simply run
+<code class="literal">aptitude</code>) or directly from the command line.  The command
+line syntax used is very similar to the one used in <span class="command"><strong>apt-get</strong></span>.
+For example, to install the <em class="replaceable"><code>foo</code></em> package, you can run
+<code class="literal">aptitude install <em class="replaceable"><code>foo</code></em></code>.
+</p><p>
+Note that <span class="command"><strong>aptitude</strong></span> is the preferred program for daily
+package management from the console.
+</p><p>
+For more information, read the manual page
+<span class="citerefentry"><span class="refentrytitle">aptitude</span>(8)</span>
+and install the <code class="systemitem">aptitude-doc</code><a id="idm1528" class="indexterm"></a> package.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="synaptic"></a>8.1.4. synaptic</h3></div></div></div><p>
+<span class="command"><strong>synaptic</strong></span> is a graphical package manager.  It enables you to
+install, upgrade and remove software packages in a user friendly way.  Along
+with most of the features offered by aptitude, it also has a feature for
+editing the list of used repositories, and supports browsing all available
+documentation related to a package.  See the <a class="ulink" href="https://www.nongnu.org/synaptic/" target="_top">Synaptic Website</a> for more
+information.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tasksel"></a>8.1.5. tasksel</h3></div></div></div><p>
+When you want to perform a specific task it might be difficult to find the
+appropiate suite of packages that fill your need.  The Debian developers have
+defined <code class="literal">tasks</code>, a task is a collection of several individual
+Debian packages all related to a specific activity.  Tasks can be installed
+through the <span class="command"><strong>tasksel</strong></span> program or through
+<span class="command"><strong>aptitude</strong></span>.
+</p><p>
+Typically, the Debian installer will automatically install the task associated
+with a standard system and a desktop environment.  The specific desktop
+environment installed will depend on the CD/DVD media used, most commonly it
+will be the GNOME desktop (<code class="literal">gnome-desktop</code> task).  Also,
+depending on your selections throughout the installation process, tasks might
+be automatically installed in your system.  For example, if you selected a
+language other than English, the task associated with it will be installed
+automatically too and if the installer recognises you are installing on a
+laptop system the <code class="literal">laptop</code> task will also be installed.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="dpkg-extra"></a>8.1.6. Other package management tools</h3></div></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="dpkg-deb"></a>8.1.6.1. dpkg-deb</h4></div></div></div><p>
+This program manipulates Debian archive (<code class="literal">.deb</code>) files.  Some
+common uses are:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Find out all the options: <code class="literal">dpkg-deb --help</code>.
+</p></li><li class="listitem"><p>
+Determine what files are contained in a Debian archive file: <code class="literal">dpkg-deb
+--contents foo_VVV-RRR.deb</code>)
+</p></li><li class="listitem"><p>
+Extract the files contained in a named Debian archive into a user specified
+directory: <code class="literal">dpkg-deb --extract foo_VVV-RRR.deb tmp</code> extracts
+each of the files in <code class="literal">foo_VVV-RRR.deb</code> into the directory
+<code class="literal">tmp/</code>.  This is convenient for examining the contents of a
+package in a localized directory, without installing the package into the root
+file system.
+</p></li><li class="listitem"><p>
+Extract the control information files from a package: <code class="literal">dpkg-deb
+--control foo_VVV-RRR.deb tmp</code>.
+</p></li></ul></div><p>
+Note that any packages that were merely unpacked using <code class="literal">dpkg-deb
+--extract</code> will be incorrectly installed, you should use <code class="literal">dpkg
+--install</code> instead.
+</p><p>
+More information is given in the manual page
+<span class="citerefentry"><span class="refentrytitle">dpkg-deb</span>(1)</span>.
+</p></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="updaterunning"></a>8.2. Debian claims to be able to update a running program; how is this accomplished?</h2></div></div></div><p>
+The kernel (file system) in Debian GNU/Linux systems supports replacing files
+even while they're being used.
+</p><p>
+We also provide a program called <span class="command"><strong>start-stop-daemon</strong></span> which is
+used to start daemons at boot time or to stop daemons when the runlevel is
+changed (e.g., from multi-user to single-user or to halt).  The same program is
+used by installation scripts when a new package containing a daemon is
+installed, to stop running daemons, and restart them as necessary.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="whatpackages"></a>8.3. How can I tell what packages are already installed on a Debian system?</h2></div></div></div><p>
+To learn the status of all the packages installed on a Debian system, execute
+the command
+</p><pre class="screen">
+dpkg --list
+</pre><p>
+This prints out a one-line summary for each package, giving a 2-letter status
+symbol (explained in the header), the package name, the version which is
+<span class="emphasis"><em>installed</em></span>, and a brief description.
+</p><p>
+To learn the status of packages whose names match any pattern beginning with
+"foo", run the command:
+</p><pre class="screen">
+dpkg --list 'foo*'
+</pre><p>
+To get a more verbose report for a particular package, execute the command:
+</p><pre class="screen">
+dpkg --status packagename
+</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="listfiles"></a>8.4. How do I display the files of an installed package?</h2></div></div></div><p>
+To list all the files provided by the installed package <code class="literal">foo</code>
+execute the command
+</p><pre class="screen">
+dpkg --listfiles foo
+</pre><p>
+Note that the files created by the installation scripts aren't displayed.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="filesearch"></a>8.5. How can I find out what package produced a particular file?</h2></div></div></div><p>
+To identify the package that produced the file named <code class="literal">foo</code>
+execute either:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<code class="literal">dpkg --search foo</code>
+</p><p>
+This searches for <code class="literal">foo</code> in installed packages.  (This is
+(currently) equivalent to searching all of the files having the file extension
+of <code class="literal">.list</code> in the directory
+<code class="literal">/var/lib/dpkg/info/</code>, and adjusting the output to print the
+names of all the packages containing it, and diversions.)
+</p><p>
+A faster alternative to this is the <span class="command"><strong>dlocate</strong></span> tool.
+</p><pre class="screen">
+dlocate -S foo
+</pre></li><li class="listitem"><p>
+<code class="literal">zgrep foo Contents-ARCH.gz</code>
+</p><p>
+This searches for files which contain the substring <code class="literal">foo</code> in
+their full path names.  The files <code class="literal">Contents-ARCH.gz</code> (where
+ARCH represents the wanted architecture) reside in the major package
+directories (main, non-free, contrib) at a Debian FTP site (i.e. under
+<code class="literal">/debian/dists/buster</code>).  A <code class="literal">Contents</code> file
+refers only to the packages in the subdirectory tree where it resides.
+Therefore, a user might have to search more than one
+<code class="literal">Contents</code> files to find the package containing the file
+<code class="literal">foo</code>.
+</p><p>
+This method has the advantage over <code class="literal">dpkg --search</code> in that it
+will find files in packages that are not currently installed on your system.
+</p></li><li class="listitem"><p>
+<code class="literal">apt-file search <em class="replaceable"><code>foo</code></em></code>
+</p><p>
+If you install the <code class="systemitem">apt-file</code><a id="idm1627" class="indexterm"></a> package,
+similar to the above, it searches files which contain the substring or regular
+expression <code class="literal">foo</code> in their full path names.  The advantage over
+the example above is that there is no need to retrieve the
+<code class="literal">Contents-ARCH.gz</code> files as it will do this automatically for
+all the sources defined in <code class="filename">/etc/apt/sources.list</code> when you
+run (as root) <code class="literal">apt-file update</code>.
+</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="datapackages"></a>8.6. Why is `foo-data' not removed when I uninstall `foo'? How do I make sure old unused library-packages get purged?</h2></div></div></div><p>
+Some packages are split in program (`foo') and data (`foo-data') (or in `foo'
+and `foo-doc').  This is true for many games, multimedia applications and
+dictionaries in Debian and has been introduced since some users might want to
+access the raw data without installing the program or because the program can
+be run without the data itself, making `foo-data' optional.
+</p><p>
+Similar situations occur when dealing with libraries: generally these get
+installed since packages containing applications depend on them.  When the
+application-package is purged, the library-package might stay on the system.
+Or: when the application-package no longer depends upon e.g. libdb4.2, but
+upon libdb4.3, the libdb4.2 package might stay when the application-package is
+upgraded.
+</p><p>
+In these cases, `foo-data' doesn't depend on `foo', so when you remove the
+`foo' package it will not get automatically removed by most package management
+tools.  The same holds true for the library packages.  This is necessary to
+avoid circular dependencies.  However, if you use <span class="command"><strong>apt-get</strong></span>
+(see <a class="xref" href="pkgtools.en.html#apt-get" title="8.1.2. APT">Section 8.1.2, “APT”</a>) or <span class="command"><strong>aptitude</strong></span> (see <a class="xref" href="pkgtools.en.html#aptitude" title="8.1.3. aptitude">Section 8.1.3, “aptitude”</a>) as your package management tool, they will track
+automatically installed packages and give the possibility to remove them, when
+no packages making use of them remain in your system.
+</p></div><div class="footnotes"><br /><hr width="100" align="left" /><div id="ftn.idm1408" class="footnote"><p><a href="#idm1408" class="para"><sup class="para">[5] </sup></a> Notice that there are ports that
+make this tool available with other package management systems, like Red Hat
+package manager, also known as <span class="command"><strong>rpm</strong></span> </p></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pkg-basics.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="uptodate.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 7. Basics of the Debian package management system </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 9. Keeping your Debian system up-to-date</td></tr></table></div></body></html>

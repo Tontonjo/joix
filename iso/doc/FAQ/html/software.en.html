@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 5. Software available in the Debian system</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="compatibility.en.html" title="Chapter 4. Compatibility issues" /><link rel="next" href="ftparchives.en.html" title="Chapter 6. The Debian FTP archives" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Software available in the Debian system</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="compatibility.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ftparchives.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="software"></a>Chapter 5. Software available in the Debian system</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="software.en.html#apps">5.1. What types of applications and development software are available for Debian GNU/Linux?</a></span></dt><dt><span class="section"><a href="software.en.html#softwareauthors">5.2. Who wrote all that software?</a></span></dt><dt><span class="section"><a href="software.en.html#pkglist">5.3. How can I get a current list of programs that have been packaged for Debian?</a></span></dt><dt><span class="section"><a href="software.en.html#buildenv">5.4. How can I install a developer's environment to build packages?</a></span></dt><dt><span class="section"><a href="software.en.html#missing">5.5. What is missing from Debian GNU/Linux?</a></span></dt><dt><span class="section"><a href="software.en.html#no-devs">5.6. Why do I get "ld: cannot find -lfoo" messages when compiling programs? Why aren't there any libfoo.so files in Debian library packages?</a></span></dt><dt><span class="section"><a href="software.en.html#java">5.7. (How) Does Debian support Java?</a></span></dt><dt><span class="section"><a href="software.en.html#isitdebian">5.8. How can I check that I am using a Debian system, and what version it is?</a></span></dt><dt><span class="section"><a href="software.en.html#nonenglish">5.9. How does Debian support non-English languages?</a></span></dt><dt><span class="section"><a href="software.en.html#qmail">5.10. Where is ezmlm/djbdns/qmail?</a></span></dt><dt><span class="section"><a href="software.en.html#flash">5.11. Where is a player for Flash (SWF)?</a></span></dt><dt><span class="section"><a href="software.en.html#googleearth">5.12. Where is Google Earth?</a></span></dt><dt><span class="section"><a href="software.en.html#voip">5.13. Where is VoIP software?</a></span></dt><dt><span class="section"><a href="software.en.html#nonfreewireless">5.14. I have a wireless network card which doesn't work with Linux. What should I do?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="apps"></a>5.1. What types of applications and development software are available for Debian GNU/Linux?</h2></div></div></div><p>
+Like most Linux distributions, Debian GNU/Linux provides:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+the major GNU applications for software development, file manipulation, and
+text processing, including gcc, g++, make, texinfo, Emacs, the Bash shell and
+numerous upgraded Unix utilities,
+</p></li><li class="listitem"><p>
+Perl, Python, Tcl/Tk and various related programs, modules and libraries for
+each of them,
+</p></li><li class="listitem"><p>
+TeX (LaTeX) and Lyx, dvips, Ghostscript,
+</p></li><li class="listitem"><p>
+the Xorg windowing system, which provides a networked graphical user interface
+for Linux, and countless X applications including the GNOME, KDE and Xfce
+desktop environments,
+</p></li><li class="listitem"><p>
+a full suite of networking applications, including servers for Internet
+protocols such as HTTP (WWW), FTP, NNTP (news), SMTP and POP (mail) and DNS
+(name servers); relational databases like PostgreSQL, MySQL; also provided are
+web browsers including the various Mozilla products,
+</p></li><li class="listitem"><p>
+a complete set of office applications, including the LibreOffice productivity
+suite, Gnumeric and other spreadsheets, WYSIWYG editors, calendars.
+</p></li></ul></div><p>
+More than 57200 packages, ranging from news servers and readers to sound
+support, FAX programs, database and spreadsheet programs, image processing
+programs, communications, net, and mail utilities, Web servers, and even
+ham-radio programs are included in the distribution.  Other 930 software suites
+are available as Debian packages, but are not formally part of Debian due to
+license restrictions.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="softwareauthors"></a>5.2. Who wrote all that software?</h2></div></div></div><p>
+For each package the <span class="emphasis"><em>authors</em></span> of the program(s) are
+credited in the file <code class="literal">/usr/share/doc/PACKAGE/copyright</code>, where
+PACKAGE is to be substituted with the package's name.
+</p><p>
+<span class="emphasis"><em>Maintainers</em></span> who package this software for the Debian GNU/Linux
+system are listed in the Debian control file (see <a class="xref" href="pkg-basics.en.html#controlfile" title="7.4. What is a Debian control file?">Section 7.4, “What is a Debian control file?”</a>) that comes with each package.  The Debian changelog,
+in <code class="literal">/usr/share/doc/PACKAGE/changelog.Debian.gz</code>, mentions the
+people who've worked on the Debian packaging too.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="pkglist"></a>5.3. How can I get a current list of programs that have been packaged for Debian?</h2></div></div></div><p>
+A complete list is available from any of the <a class="ulink" href="https://www.debian.org/distrib/ftplist" target="_top">Debian mirrors</a>, in the file
+<code class="literal">indices/Maintainers</code>.  That file includes the package names
+and the names and e-mails of their respective maintainers.
+</p><p>
+The <a class="ulink" href="https://packages.debian.org/" target="_top">WWW interface to the Debian
+packages</a> conveniently summarizes the packages in each of about thirty
+"sections" of the Debian archive.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="buildenv"></a>5.4. How can I install a developer's environment to build packages?</h2></div></div></div><p>
+If you want to build packages in your Debian system you will need to have a
+basic development environment, including a C/C++ compiler and some other
+essential packages.  In order to install this environment you just need to
+install the <code class="systemitem">build-essential</code><a id="idm561" class="indexterm"></a> package.
+This is a meta-package or place-holder package which depends on the standard
+development tools one needs to build a Debian package.
+</p><p>
+Some software can, however, need additional software to be rebuilt, including
+library headers or additional tools such as <span class="command"><strong>autoconf</strong></span> or
+<span class="command"><strong>gettext</strong></span>.  Debian provides many of the tools needed to build
+other software as Debian packages.
+</p><p>
+Finding which software is precisely required can be tricky, however, unless you
+are planning on rebuilding Debian packages.  This last task is rather easy to
+do, as official packages have to include a list of the additional software
+(besides the packages in <code class="systemitem">build-essential</code><a id="idm569" class="indexterm"></a>) needed to build the package, this
+is known as <code class="literal">Build-Dependencies</code>.  To install all the packages
+needed to build a given source package and then build said source package you
+can just run:
+</p><pre class="screen">
+# apt-get build-dep <em class="replaceable"><code>foo</code></em>
+# apt-get source --build <em class="replaceable"><code>foo</code></em>
+</pre><p>
+Notice that if you want to build the Linux kernels distributed by Debian you
+will want to install also the <code class="systemitem">kernel-package</code><a id="idm578" class="indexterm"></a> package.  For more information see
+<a class="xref" href="kernel.en.html#customkernel" title="10.2. What tools does Debian provide to build custom kernels?">Section 10.2, “What tools does Debian provide to build custom kernels?”</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="missing"></a>5.5. What is missing from Debian GNU/Linux?</h2></div></div></div><p>
+There is a list of packages which still need to be packaged for Debian, the
+<a class="ulink" href="https://www.debian.org/devel/wnpp/" target="_top">Work-Needing and Prospective
+Packages list</a>.
+</p><p>
+For more details about adding missing things, see <a class="xref" href="contributing.en.html" title="Chapter 13. Contributing to the Debian Project">Chapter 13, <em>Contributing to the Debian Project</em></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="no-devs"></a>5.6. Why do I get "ld: cannot find -lfoo" messages when compiling programs? Why aren't there any libfoo.so files in Debian library packages?</h2></div></div></div><p>
+Debian Policy requires that such symbolic links (to libfoo.so.x.y.z or similar)
+are placed in separate, development packages.  Those packages are usually named
+libfoo-dev or libfooX-dev (presuming the library package is named libfooX, and
+X is a whole number).
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="java"></a>5.7. (How) Does Debian support Java?</h2></div></div></div><p>
+Several <span class="emphasis"><em>free</em></span> implementations of Java technology are
+available as Debian packages, providing both Java Development Kits as well as
+Runtime Environments.  You can write, debug and run Java programs using Debian.
+</p><p>
+Running a Java applet requires a web browser with the capability to recognize
+and execute it.  Several web browsers available in Debian, such as Mozilla or
+Konqueror, support Java plug-ins that enable running Java applets within them.
+</p><p>
+Please refer to the <a class="ulink" href="https://www.debian.org/doc/manuals/debian-java-faq/" target="_top">Debian Java
+FAQ</a> for more information.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="isitdebian"></a>5.8. How can I check that I am using a Debian system, and what version it is?</h2></div></div></div><p>
+In order to make sure that your system has been installed from the real Debian
+base disks, use the
+</p><pre class="screen">
+lsb_release -a
+</pre><p>
+command.  It will display the name of the distribution (in Distributor ID
+field) and the version of the system (in Release and Codename fields).  The
+following is an example run in a Debian system:
+</p><pre class="screen">
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 7.4 (wheezy)
+Release:    7.4
+Codename:   wheezy
+</pre><p>
+You can also check for the existence of <code class="literal">/etc/debian_version</code>
+file, which contains a single one-line entry giving the version number of the
+release, as defined by the package <code class="literal">base-files</code>.
+</p><p>
+Users should be aware, however, that the Debian system consists of many parts,
+each of which can be updated (almost) independently.  Each Debian "release"
+contains well defined and unchanging contents.  Updates are separately
+available.  For a one-line description of the installation status of package
+<code class="literal">foo</code>, use the command <code class="literal">dpkg --list foo</code>.
+For a more verbose description, use:
+</p><pre class="screen">
+dpkg --status foo
+</pre><p>
+To view versions of all installed packages, run:
+</p><pre class="screen">
+dpkg -l
+</pre><p>
+Note that the existence of the program <code class="literal">dpkg</code> shows that you
+should be able to install Debian packages on your system.  However, since the
+program has been ported to many other operating systems and architectures, this
+is no longer a reliable method of determining if a system is Debian GNU/Linux.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="nonenglish"></a>5.9. How does Debian support non-English languages?</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Debian GNU/Linux is distributed with keymaps for nearly two dozen keyboards,
+and with utilities (in the <code class="literal">kbd</code> package) to install, view,
+and modify the tables.
+</p><p>
+The installation prompts the user to specify the keyboard he will use.
+</p></li><li class="listitem"><p>
+Nearly all of the software in Debian supports UTF-8 as character set.  Legacy
+character sets, such as ISO-8859-1 or ISO-8859-2, should be considered
+obsolete.
+</p></li><li class="listitem"><p>
+Currently, support for German-, Spanish-, French-, Hungarian-, Italian-,
+Japanese-, Korean-, Dutch-, Polish-, Portuguese-, Russian-, Turkish-, and
+Chinese-language manual pages is provided through the
+<code class="literal">manpages-LANG</code> packages (where LANG is the two-letter ISO
+country code).  To access an NLS manual page, the user must set the shell
+LC_MESSAGES variable to the appropriate string.
+</p><p>
+For example, in the case of the Italian-language manual pages, LC_MESSAGES
+needs to be set to 'italian'.  The <span class="command"><strong>man</strong></span> program will then
+search for Italian manual pages under <code class="literal">/usr/share/man/it/</code>.
+</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="qmail"></a>5.10. Where is ezmlm/djbdns/qmail?</h2></div></div></div><p>
+Dan J. Bernstein used to distribute <a class="ulink" href="https://cr.yp.to/software.html" target="_top">all software he has written</a> with a
+restrictive license which does not allow modified binaries to be distributed.
+In november 2007 however, Bernstein said "[...] i have decided to put all of my
+future and [...] past software into the public domain".  See <a class="ulink" href="https://cr.yp.to/distributors.html" target="_top">FAQ from distributors</a> for his
+distribution terms.
+</p><p>
+As of this writing (2016-03), <code class="systemitem">ezmlm-idx</code><a id="idm637" class="indexterm"></a>
+is available in experimental only (<code class="systemitem">mlmmj</code><a id="idm641" class="indexterm"></a> is similar, and shipped with Debian jessie);
+<code class="systemitem">djbdns</code><a id="idm645" class="indexterm"></a> is available in sid (unstable)
+only, see <a class="ulink" href="https://bugs.debian.org/516394" target="_top">Bug #516394</a> and
+<a class="ulink" href="https://bugs.debian.org/796118" target="_top">Bug #796118</a> for details and
+see <code class="systemitem">dbndns</code><a id="idm651" class="indexterm"></a> for a similar alternative;
+the <code class="literal">publicfile</code> software is still not free software, a
+<code class="systemitem">publicfile-installer</code><a id="idm656" class="indexterm"></a> package is
+available from Debian's contrib section.
+</p><p>
+Other software of Dan J. Bernstein (<code class="systemitem">qmail</code><a id="idm661" class="indexterm"></a>, <code class="systemitem">daemontools</code><a id="idm665" class="indexterm"></a>, <code class="systemitem">ucspi-tcp</code><a id="idm669" class="indexterm"></a>) is shipped with Debian.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="flash"></a>5.11. Where is a player for Flash (SWF)?</h2></div></div></div><p>
+Debian ships both <code class="systemitem">gnash</code><a id="idm676" class="indexterm"></a> and <code class="systemitem">swfdec</code><a id="idm680" class="indexterm"></a>: two free SWF movie players.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="googleearth"></a>5.12. Where is Google Earth?</h2></div></div></div><p>
+Google Earth is available for GNU/Linux from Google's web site, but not only it
+is not Free Software, but is completely undistributable by a third party.
+However, <code class="systemitem">googleearth-package</code><a id="idm687" class="indexterm"></a> (in the
+contrib-section) might be helpful in using this software.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="voip"></a>5.13. Where is VoIP software?</h2></div></div></div><p>
+Two main open protocols are used for Voice Over IP: SIP and H.323.  Both are
+implemented by a wide variety of software in Debian main.  <code class="systemitem">ekiga</code><a id="idm694" class="indexterm"></a> is one of the popular clients.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="nonfreewireless"></a>5.14. I have a wireless network card which doesn't work with Linux. What should I do?</h2></div></div></div><p>
+Buy one which does :)
+</p><p>
+Alternatively, use <code class="systemitem">ndiswrapper</code><a id="idm702" class="indexterm"></a> to use a
+driver for Windows (if you have one) on your Linux system.  See the <a class="ulink" href="https://wiki.debian.org/NdisWrapper" target="_top">Debian Wiki ndiswrapper page</a>
+for more information.
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="compatibility.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ftparchives.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 4. Compatibility issues </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 6. The Debian FTP archives</td></tr></table></div></body></html>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 12. Getting support for Debian GNU/Linux</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="customizing.en.html" title="Chapter 11. Customizing your Debian GNU/Linux system" /><link rel="next" href="contributing.en.html" title="Chapter 13. Contributing to the Debian Project" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 12. Getting support for Debian GNU/Linux</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="customizing.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="contributing.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="support"></a>Chapter 12. Getting support for Debian GNU/Linux</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="support.en.html#debiandocs">12.1. What other documentation exists on and for a Debian system?</a></span></dt><dt><span class="section"><a href="support.en.html#onlineresources">12.2. Are there any on-line resources for discussing Debian?</a></span></dt><dd><dl><dt><span class="section"><a href="support.en.html#s12.2.1">12.2.1. Mailing lists</a></span></dt><dt><span class="section"><a href="support.en.html#s12.2.2">12.2.2. Web forums</a></span></dt><dt><span class="section"><a href="support.en.html#s12.2.3">12.2.3. Wiki</a></span></dt><dt><span class="section"><a href="support.en.html#s12.2.4">12.2.4. Maintainers</a></span></dt><dt><span class="section"><a href="support.en.html#s12.2.5">12.2.5. Usenet newsgroups</a></span></dt></dl></dd><dt><span class="section"><a href="support.en.html#searchtools">12.3. Is there a quick way to search for information on Debian GNU/Linux?</a></span></dt><dt><span class="section"><a href="support.en.html#buglogs">12.4. Are there logs of known bugs?</a></span></dt><dt><span class="section"><a href="support.en.html#bugreport">12.5. How do I report a bug in Debian?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="debiandocs"></a>12.1. What other documentation exists on and for a Debian system?</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Installation instructions for the current release: see <a class="ulink" href="https://www.debian.org/releases/stable/installmanual" target="_top">https://www.debian.org/releases/stable/installmanual</a>.
+</p></li><li class="listitem"><p>
+The Debian GNU/Linux reference covers many aspects of system administration
+through shell-command examples.  Basic tutorials, tips, and other information
+are provided for many different topics ranging from system administration to
+programming.
+</p><p>
+Get it from the <code class="systemitem">debian-reference</code><a id="idm2095" class="indexterm"></a>
+package, or at <a class="ulink" href="https://www.debian.org/doc/user-manuals#quick-reference" target="_top">https://www.debian.org/doc/user-manuals#quick-reference</a>.
+</p></li><li class="listitem"><p>
+The Debian Policy manual documents the policy requirements for the
+distribution, i.e. the structure and contents of the Debian archive, several
+design issues of the operating system etc.  It also includes the technical
+requirements that each package must satisfy to be included in the distribution,
+and documents the basic technical aspects of Debian binary and source packages.
+</p><p>
+Get it from the <code class="systemitem">debian-policy</code><a id="idm2103" class="indexterm"></a> package,
+or at <a class="ulink" href="https://www.debian.org/doc/devel-manuals#policy" target="_top">https://www.debian.org/doc/devel-manuals#policy</a>.
+</p></li><li class="listitem"><p>
+Documentation developed by the Debian Documentation Project.  It is available
+at <a class="ulink" href="https://www.debian.org/doc" target="_top">https://www.debian.org/doc</a>
+and includes user guides, administration guides and security guides for the
+Debian GNU/Linux operating system.
+</p></li><li class="listitem"><p>
+Documentation on installed Debian packages: Most packages have files that are
+unpacked into <code class="literal">/usr/share/doc/PACKAGE</code>.
+</p></li><li class="listitem"><p>
+Documentation on the Linux project: The Debian package <code class="systemitem">doc-linux</code><a id="idm2116" class="indexterm"></a> installs all of the most recent versions
+of the HOWTOs and mini-HOWTOs from the <a class="ulink" href="http://www.tldp.org/" target="_top">Linux
+Documentation Project</a>.
+</p></li><li class="listitem"><p>
+Unix-style `man' pages: Most commands have manual pages written in the style of
+the original Unix 'man' files.  For instance, to see the manual page for the
+command `ls', execute <code class="literal">man ls</code>.  Execute <code class="literal">man
+man</code> for more information on finding and viewing manual pages.
+</p><p>
+New Debian users should note that the 'man' pages of many general system
+commands are not available until they install these packages:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>
+<code class="literal">man-db</code>, which contains the <code class="literal">man</code> program
+itself, and other programs for manipulating the manual pages.
+</p></li><li class="listitem"><p>
+<code class="literal">manpages</code>, which contains the system manual pages.  (see
+<a class="xref" href="software.en.html#nonenglish" title="5.9. How does Debian support non-English languages?">Section 5.9, “How does Debian support non-English languages?”</a>).
+</p></li></ul></div></li><li class="listitem"><p>
+GNU-style `info' pages: User documentation for many commands, particularly GNU
+tools, is available not in `man' pages, but in `info' files which can be read
+by the GNU tool <code class="literal">info</code>, by running <code class="literal">M-x info</code>
+within GNU Emacs, or with some other Info page viewer.
+</p><p>
+Its main advantage over the original `man' pages is that it is a hypertext
+system.  It does <span class="emphasis"><em>not</em></span> require the WWW, however;
+<code class="literal">info</code> can be run from a plain text console.  It was designed
+by Richard Stallman and preceded the WWW.
+</p></li></ul></div><p>
+Note that you may access a lot of documentation on your system by using a WWW
+browser, through `dwww', `dhelp' or `doccentral' commands, found in respective
+packages, or by using `yelp'.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="onlineresources"></a>12.2. Are there any on-line resources for discussing Debian?</h2></div></div></div><p>
+Yes.  In fact, the main method of support Debian provides to our users is by
+the way of e-mail.  We'll give some details on that, and mention some other
+useful resources.  Even more resources are listed at the <a class="ulink" href="https://www.debian.org/support" target="_top">Debian Support webpage</a>.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="s12.2.1"></a>12.2.1. Mailing lists</h3></div></div></div><p>
+There are a lot of <a class="ulink" href="https://www.debian.org/MailingLists/" target="_top">Debian-related mailing lists</a>.
+</p><p>
+On a system with the <code class="systemitem">doc-debian</code><a id="idm2152" class="indexterm"></a> package
+installed there is a complete list of mailing lists in
+<code class="filename">/usr/share/doc/debian/mailing-lists.txt</code>.
+</p><p>
+Debian mailing lists are named following the pattern
+debian-<em class="replaceable"><code>list-subject</code></em>.  Examples are debian-announce,
+debian-user, debian-news.  To subscribe to any list
+debian-<em class="replaceable"><code>list-subject</code></em>, send mail to
+debian-<em class="replaceable"><code>list-subject</code></em>-request@lists.debian.org with
+the word "subscribe" in the Subject: header.  Be sure to remember to add
+<span class="emphasis"><em>-request</em></span> to the e-mail address when using this method to
+subscribe or unsubscribe.  Otherwise your e-mail will go to the list itself,
+which could be embarrassing or annoying, depending on your point of view.
+</p><p>
+You can subscribe to mailing lists using the <a class="ulink" href="https://www.debian.org/MailingLists/subscribe" target="_top">WWW form</a>.  You can
+also un-subscribe using a <a class="ulink" href="https://www.debian.org/MailingLists/unsubscribe" target="_top">WWW form</a>.
+</p><p>
+The list manager's e-mail address is
+<code class="email">&lt;<a class="email" href="mailto:listmaster@lists.debian.org">listmaster@lists.debian.org</a>&gt;</code>, in case you have any trouble.
+</p><p>
+The mailing lists are public forums.  All e-mails sent to the lists are also
+copied to the public archive, for anybody (even non-subscribers) to browse or
+search.  Please make sure you never send any confidential or unlicensed
+material to the lists.  This includes things like e-mail addresses.  Of
+particular note is the fact that spammers have been known to abuse e-mail
+addresses posted to our mailing lists.  See the <a class="ulink" href="https://www.debian.org/MailingLists/#disclaimer" target="_top">Mailing Lists Privacy
+policy</a> for more information.
+</p><p>
+Archives of the Debian mailing lists are available via WWW at <a class="ulink" href="https://lists.debian.org/" target="_top">https://lists.debian.org/</a>.
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="mailinglistconduct"></a>12.2.1.1. What is the code of conduct for the mailing lists?</h4></div></div></div><p>
+When using the Debian mailing lists, please follow these rules:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Do not send spam.  See the <a class="ulink" href="https://www.debian.org/MailingLists/#ads" target="_top">Debian mailing list advertising
+policy</a>.
+</p></li><li class="listitem"><p>
+Do not flame; it is not polite.  The people developing Debian are all
+volunteers, donating their time, energy and money in an attempt to bring the
+Debian project together.
+</p></li><li class="listitem"><p>
+Do not use foul language; besides, some people receive the lists via packet
+radio, where swearing is illegal.
+</p></li><li class="listitem"><p>
+Make sure that you are using the proper list.  <span class="emphasis"><em>Never</em></span> post
+your (un)subscription requests to the mailing list itself.<a href="#ftn.idm2184" class="footnote" id="idm2184"><sup class="footnote">[7]</sup></a>
+</p></li><li class="listitem"><p>
+See section <a class="xref" href="support.en.html#bugreport" title="12.5. How do I report a bug in Debian?">Section 12.5, “How do I report a bug in Debian?”</a> for notes on reporting bugs.
+</p></li></ul></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="s12.2.2"></a>12.2.2. Web forums</h3></div></div></div><p>
+<a class="ulink" href="https://debianhelp.org/" target="_top">debianHELP</a> and <a class="ulink" href="http://forums.debian.net/" target="_top">Debian User Forums</a> are web forums on
+which you can submit questions about Debian and have them answered by other
+users.  (These are not officially part of the Debian project.)
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="s12.2.3"></a>12.2.3. Wiki</h3></div></div></div><p>
+Solutions to common problems, howtos, guides, tips and other documentation can
+be found at the constantly changing <a class="ulink" href="https://wiki.debian.org/" target="_top">Debian
+Wiki</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="s12.2.4"></a>12.2.4. Maintainers</h3></div></div></div><p>
+Users can address questions to individual package maintainers using e-mail.  To
+reach a maintainer of a package called xyz, send e-mail to
+<span class="emphasis"><em>xyz@packages.debian.org</em></span>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="s12.2.5"></a>12.2.5. Usenet newsgroups</h3></div></div></div><p>
+Users should post non-Debian-specific questions to one of the Linux USENET
+groups, which are named comp.os.linux.* or linux.*.  There are several lists of
+Linux Usenet newsgroups and other related resources on the WWW, e.g. on the
+<a class="ulink" href="https://www.linux.org/docs/usenet.html" target="_top">Linux Online</a> and
+<a class="ulink" href="http://www.linuxjournal.com/helpdesk.php" target="_top">LinuxJournal</a>
+sites.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="searchtools"></a>12.3. Is there a quick way to search for information on Debian GNU/Linux?</h2></div></div></div><p>
+There is a variety of search engines that serve documentation related to
+Debian:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<a class="ulink" href="https://search.debian.org/" target="_top">Debian WWW search site</a>.
+</p></li><li class="listitem"><p>
+<a class="ulink" href="https://groups.google.com/" target="_top">Google Groups</a>: a search engine
+for newsgroups.
+</p><p>
+For example, to find out what experiences people have had with finding drivers
+for NVIDIA graphic cards under Debian, try searching the phrase <code class="literal">NVIDIA
+Linux driver</code>.  This will show you all the posts that contain these
+strings, i.e. those where people discussed these topics.  If you add
+<code class="literal">Debian</code> to those search strings, you'll also get the posts
+specifically related to Debian.
+</p></li><li class="listitem"><p>
+Any of the common web spidering engines, such as <a class="ulink" href="https://duckduckgo.com/" target="_top">DuckDuckGo</a> or <a class="ulink" href="https://www.google.com/" target="_top">Google</a>, as long as you use the right
+search terms.
+</p><p>
+For example, searching on the string "evince" gives a more detailed explanation
+of this package than the brief description field in its control file.
+</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="buglogs"></a>12.4. Are there logs of known bugs?</h2></div></div></div><p>
+Reports on unsolved (and closed) issues are publicly available: Debian
+promissed to do so by stating "We will not hide problems" in the <a class="ulink" href="https://www.debian.org/social_contract" target="_top">Debian Social Contract</a>.
+</p><p>
+The Debian GNU/Linux distribution has a bug tracking system (BTS) which files
+details of bugs reported by users and developers.  Each bug is given a number,
+and is kept on file.  Once it has been dealt with, it is marked as such.
+</p><p>
+Copies of this information are available at <a class="ulink" href="https://www.debian.org/Bugs/" target="_top">https://www.debian.org/Bugs/</a>.
+</p><p>
+A mail server provides access to the bug tracking system database via e-mail.
+In order to get the instructions, send an e-mail to request@bugs.debian.org
+with "help" in the body.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="bugreport"></a>12.5. How do I report a bug in Debian?</h2></div></div></div><p>
+If you have found a bug in Debian, please read the instructions for reporting a
+bug in Debian.  These instructions can be obtained in one of several ways:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+From the WWW.  A copy of the instructions is shown at <a class="ulink" href="https://www.debian.org/Bugs/Reporting" target="_top">https://www.debian.org/Bugs/Reporting</a>.
+</p></li><li class="listitem"><p>
+On any Debian system with the <code class="systemitem">doc-debian</code><a id="idm2244" class="indexterm"></a> package installed.  The instructions are
+in the file <code class="filename">/usr/share/doc/debian/bug-reporting.txt</code>.
+</p></li><li class="listitem"><p>
+By anonymous FTP.  Debian mirror sites contain the instructions in the file
+<code class="literal">doc/bug-reporting.txt</code>.
+</p></li></ul></div><p>
+You can use the package <code class="systemitem">reportbug</code><a id="idm2253" class="indexterm"></a> that
+will guide you through the reporting process and mail the message to the proper
+address, with some extra details about your system added automatically.  It
+will also show you a list of bugs already reported to the package you are
+reporting against in case your bug has been reported previously, so that you
+can add additional information to the existing bug report.
+</p><p>
+Expect to get an automatic acknowledgement of your bug report.  It will also be
+automatically given a bug tracking number, entered into the bug log and
+forwarded to the debian-bugs-dist mailing list.
+</p></div><div class="footnotes"><br /><hr width="100" align="left" /><div id="ftn.idm2184" class="footnote"><p><a href="#idm2184" class="para"><sup class="para">[7] </sup></a> Use
+the debian-<em class="replaceable"><code>list-subject</code></em>-REQUEST@lists.debian.org
+address for that.  </p></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="customizing.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="contributing.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 11. Customizing your Debian GNU/Linux system </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 13. Contributing to the Debian Project</td></tr></table></div></body></html>

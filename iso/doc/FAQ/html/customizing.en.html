@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 11. Customizing your Debian GNU/Linux system</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="kernel.en.html" title="Chapter 10. Debian and the kernel" /><link rel="next" href="support.en.html" title="Chapter 12. Getting support for Debian GNU/Linux" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 11. Customizing your Debian GNU/Linux system</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="kernel.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="support.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="customizing"></a>Chapter 11. Customizing your Debian GNU/Linux system</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="customizing.en.html#papersize">11.1. How can I ensure that all programs use the same paper size?</a></span></dt><dt><span class="section"><a href="customizing.en.html#hardwareaccess">11.2. How can I provide access to hardware peripherals, without compromising security?</a></span></dt><dt><span class="section"><a href="customizing.en.html#consolefont">11.3. How do I load a console font on startup the Debian way?</a></span></dt><dt><span class="section"><a href="customizing.en.html#appdefaults">11.4. How can I configure an X11 program's application defaults?</a></span></dt><dt><span class="section"><a href="customizing.en.html#booting">11.5. How does a Debian system boot?</a></span></dt><dt><span class="section"><a href="customizing.en.html#sysvinit">11.6. And how about Debian and traditional System V init?</a></span></dt><dt><span class="section"><a href="customizing.en.html#altboot">11.7. And are there yet other ways of booting a Debian system?</a></span></dt><dt><span class="section"><a href="customizing.en.html#interconffiles">11.8. How does the package management system deal with packages that contain configuration files for other packages?</a></span></dt><dt><span class="section"><a href="customizing.en.html#divert">11.9. How do I override a file installed by a package, so that a different version can be used instead?</a></span></dt><dt><span class="section"><a href="customizing.en.html#localpackages">11.10. How can I have my locally-built package included in the list of available packages that the package management system knows about?</a></span></dt><dt><span class="section"><a href="customizing.en.html#diverse">11.11. Some users like mawk, others like gawk; some like vim, others like elvis; some like trn, others like tin; how does Debian support diversity?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="papersize"></a>11.1. How can I ensure that all programs use the same paper size?</h2></div></div></div><p>
+Install the <code class="systemitem">libpaper1</code><a id="idm1839" class="indexterm"></a> package, and it
+will ask you for a system-wide default paper size.  This setting will be kept
+in the file <code class="literal">/etc/papersize</code>.
+</p><p>
+Users can override the paper size setting using the
+<code class="literal">PAPERSIZE</code> environment variable.  For details, see the manual
+page
+<span class="citerefentry"><span class="refentrytitle">papersize</span>(5)</span>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="hardwareaccess"></a>11.2. How can I provide access to hardware peripherals, without compromising security?</h2></div></div></div><p>
+Many device files in the <code class="literal">/dev</code> directory belong to some
+predefined groups.  For example, <code class="literal">/dev/sr0</code> belongs to the
+<code class="literal">cdrom</code> group.
+</p><p>
+If you want a certain user to have access to one of these devices, just add the
+user to the group the device belongs to, i.e. do:
+</p><pre class="screen">
+adduser user group
+</pre><p>
+This way you won't have to change the file permissions on the device.
+</p><p>
+If you do this from within a user's shell or a GUI environment you have to
+logout and login again to become an effective member of that group.  To check
+which groups you belong to run <code class="literal">groups</code>.
+</p><p>
+Notice that, since the introduction of <code class="literal">udev</code> if you change
+the permissions of a hardware peripheral, they might be adjusted for some
+devices when the system starts; if this happens to the hardware peripherals you
+are interested in, you will have to adjust the rules at
+<code class="literal">/etc/udev</code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="consolefont"></a>11.3. How do I load a console font on startup the Debian way?</h2></div></div></div><p>
+The <code class="systemitem">kbd</code><a id="idm1866" class="indexterm"></a> package supports this, edit the
+<code class="literal">/etc/kbd/config</code> file.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="appdefaults"></a>11.4. How can I configure an X11 program's application defaults?</h2></div></div></div><p>
+Debian's X programs will install their application resource data in the
+<code class="literal">/etc/X11/app-defaults/</code> directory.  If you want to customize
+X applications globally, put your customizations in those files.  They are
+marked as configuration files, so their contents will be preserved during
+upgrades.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="booting"></a>11.5. How does a Debian system boot?</h2></div></div></div><p>
+Like all Unices, Debian boots up by executing the program
+<code class="literal">init</code>.  Like most Linux distributions, a default Debian
+system uses <code class="literal">systemd</code> as the implementation of
+<code class="literal">init</code>.  Traditional System-V style init and other methods are
+also supported.  <a href="#ftn.idm1880" class="footnote" id="idm1880"><sup class="footnote">[6]</sup></a>
+</p><p>
+To control the order in which services are started, traditional System-V style
+Unix systems use <span class="emphasis"><em>runlevels</em></span>.  These are replaced by
+<span class="emphasis"><em>targets</em></span> under systemd.  To display the default target to
+which systemd will bring the system, run the command
+</p><pre class="screen">
+systemctl get-default
+</pre><p>
+During boot-up, systemd starts the services or other targets listed in the
+default target file <code class="literal">/lib/systemd/system/default.target</code>.  The
+files for these services and targets are installed and the service is
+<span class="emphasis"><em>enabled</em></span> during Debian package installation.  If you
+specifically wish not to start a service during boot-up, instead of removing
+the corresponding package, you can run the command
+</p><pre class="screen">
+systemctl disable <em class="replaceable"><code>service</code></em>.service
+</pre><p>
+using the name of the service file installed in
+<code class="literal">/lib/systemd/system</code> (usually based on the name of the
+package).
+</p><p>
+The <span class="emphasis"><em>service file</em></span>
+<code class="literal">/lib/systemd/rc.local.service</code> provides an easy way to run
+customized scripts in the file <code class="literal">/etc/rc.local</code> after boot-up,
+similar to what's offered on Debian systems running System-V style init.
+Beware: this script will fail if it tries to interact with the console such as
+asking for a user password or trying to clear the screen.
+</p><p>
+You can check the status of any service by the command
+</p><pre class="screen">
+service <em class="replaceable"><code>package</code></em> status
+</pre><p>
+.  To start or stop a service, run
+</p><pre class="screen">
+service <em class="replaceable"><code>package</code></em> start
+</pre><p>
+and
+</p><pre class="screen">
+service <em class="replaceable"><code>package</code></em> stop
+</pre><p>
+.  The <code class="literal">service</code> command works with any init system supported
+on a Debian system, not just with systemd.  If you however prefer to use the
+same command on any systemd-supported Linux system, for checking the status run
+</p><pre class="screen">
+systemctl status <em class="replaceable"><code>package</code></em>.service
+</pre><p>
+to get the same information.
+</p><p>
+For more information on systemd for Debian, see <a class="ulink" href="https://wiki.debian.org/systemd" target="_top">https://wiki.debian.org/systemd</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="sysvinit"></a>11.6. And how about Debian and traditional System V init?</h2></div></div></div><p>
+Debian supports booting using traditional System V init, via the sysvinit-core
+package.  The configuration file for System V <code class="literal">init</code> (which is
+<code class="literal">/etc/inittab</code>) specifies that the first script to be executed
+should be <code class="literal">/etc/init.d/rcS</code>.  This script runs all of the
+scripts in <code class="literal">/etc/rcS.d/</code> by forking subprocesses to perform
+initialization such as to check and to mount file systems, to load modules, to
+start the network services, to set the clock, and to perform other
+initialization.
+</p><p>
+After completing the boot process, <code class="literal">init</code> executes all start
+scripts in a directory specified by the default runlevel (this runlevel is
+given by the entry for <code class="literal">id</code> in
+<code class="literal">/etc/inittab</code>).  Like most System V compatible Unices, Linux
+has 7 runlevels:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+0 (halt the system),
+</p></li><li class="listitem"><p>
+1 (single-user mode),
+</p></li><li class="listitem"><p>
+2 through 5 (various multi-user modes), and
+</p></li><li class="listitem"><p>
+6 (reboot the system).
+</p></li></ul></div><p>
+Debian systems come with id=2, which indicates that the default runlevel will
+be '2' when the multi-user state is entered, and the scripts in
+<code class="literal">/etc/rc2.d/</code> will be run.
+</p><p>
+Debian uses dependency-based boot ordering through <span class="command"><strong>insserv</strong></span>,
+using the LSB headers in each script under <code class="literal">/etc/init.d/</code>, as
+well as parallel concurrent booting through the use of
+<span class="command"><strong>startpar</strong></span> to speed up the boot process.
+</p><p>
+The scripts in any of the directories, <code class="literal">/etc/rcN.d/</code> are just
+symbolic links back to scripts in <code class="literal">/etc/init.d/</code>.  However,
+the <span class="emphasis"><em>names</em></span> of the files in each of the
+<code class="literal">/etc/rcN.d/</code> directories are selected to indicate the
+<span class="emphasis"><em>way</em></span> the scripts in <code class="literal">/etc/init.d/</code> will be
+run.  Specifically, before entering any runlevel, all the scripts beginning
+with 'K' are run; these scripts kill services.  Then all the scripts beginning
+with 'S' are run; these scripts start services.  The two-digit number following
+the 'K' or 'S' indicates the order in which the script is run.  Lower numbered
+scripts are executed first.
+</p><p>
+This approach works because the scripts in <code class="literal">/etc/init.d/</code> all
+take an argument which can be either `start', `stop', `reload', `restart' or
+`force-reload' and will then do the task indicated by the argument.  These
+scripts can be used even after a system has been booted, to control various
+processes.
+</p><p>
+For example, with the argument `reload' the command
+</p><pre class="screen">
+/etc/init.d/sendmail reload
+</pre><p>
+sends the sendmail daemon a signal to reread its configuration file.
+</p><p>
+Note that <span class="command"><strong>invoke-rc.d</strong></span> should not be used to call the
+<code class="literal">/etc/init.d/</code> scripts, <span class="command"><strong>service</strong></span> should be
+used instead.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="altboot"></a>11.7. And are there yet other ways of booting a Debian system?</h2></div></div></div><p>
+If you do like System V init, but don't like the /etc/rc?.d/* links, you could
+install the <code class="systemitem">file-rc</code><a id="idm1964" class="indexterm"></a> package.  That will
+convert the links into one single configuration file /etc/runlevel.conf
+instead.
+</p><p>
+If you like neither System V nor systemd, you might like <code class="systemitem">openrc</code><a id="idm1969" class="indexterm"></a> or <code class="systemitem">runit</code><a id="idm1973" class="indexterm"></a> or <code class="systemitem">daemontools</code><a id="idm1977" class="indexterm"></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="interconffiles"></a>11.8. How does the package management system deal with packages that contain configuration files for other packages?</h2></div></div></div><p>
+Some users wish to create, for example, a new server by installing a group of
+Debian packages and a locally generated package consisting of configuration
+files.  This is not generally a good idea, because <span class="command"><strong>dpkg</strong></span> will
+not know about those configuration files if they are in a different package,
+and may write conflicting configurations when one of the initial "group" of
+packages is upgraded.
+</p><p>
+Instead, create a local package that modifies the configuration files of the
+"group" of Debian packages of interest.  Then <span class="command"><strong>dpkg</strong></span> and the
+rest of the package management system will see that the files have been
+modified by the local "sysadmin" and will not try to overwrite them when those
+packages are upgraded.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="divert"></a>11.9. How do I override a file installed by a package, so that a different version can be used instead?</h2></div></div></div><p>
+Suppose a sysadmin or local user wishes to use a program "login-local" rather
+than the program "login" provided by the Debian <code class="systemitem">login</code><a id="idm1990" class="indexterm"></a> package.
+</p><p>
+Do <span class="strong"><strong>not</strong></span>:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Overwrite <code class="literal">/bin/login</code> with <code class="literal">login-local</code>.
+</p></li></ul></div><p>
+The package management system will not know about this change, and will simply
+overwrite your custom <code class="literal">/bin/login</code> whenever
+<code class="literal">login</code> (or any package that provides
+<code class="literal">/bin/login</code>) is installed or updated.
+</p><p>
+Rather, do
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Execute:
+</p><pre class="screen">
+dpkg-divert --divert /bin/login.debian /bin/login
+</pre><p>
+in order to cause all future installations of the Debian <code class="systemitem">login</code><a id="idm2011" class="indexterm"></a> package to write the file
+<code class="literal">/bin/login</code> to <code class="literal">/bin/login.debian</code> instead.
+</p></li><li class="listitem"><p>
+Then execute:
+</p><pre class="screen">
+cp login-local /bin/login
+</pre><p>
+to move your own locally-built program into place.
+</p></li></ul></div><p>
+Run <code class="literal">dpkg-divert --list</code> to see which diversions are currently
+active on your system.
+</p><p>
+Details are given in the manual page
+<span class="citerefentry"><span class="refentrytitle">dpkg-divert</span>(8)</span>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="localpackages"></a>11.10. How can I have my locally-built package included in the list of available packages that the package management system knows about?</h2></div></div></div><p>
+Execute the command:
+</p><pre class="screen">
+dpkg-scanpackages BIN_DIR OVERRIDE_FILE [PATHPREFIX] &gt; my_Packages
+</pre><p>
+where:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+BIN-DIR is a directory where Debian archive files (which usually have an
+extension of ".deb") are stored.
+</p></li><li class="listitem"><p>
+OVERRIDE_FILE is a file that is edited by the distribution maintainers and is
+usually stored on a Debian FTP archive at
+<code class="literal">indices/override.main.gz</code> for the Debian packages in the
+"main" distribution.  You can ignore this for local packages.
+</p></li><li class="listitem"><p>
+PATHPREFIX is an <span class="emphasis"><em>optional</em></span> string that can be prepended to
+the <code class="literal">my_Packages</code> file being produced.
+</p></li></ul></div><p>
+Once you have built the file <code class="literal">my_Packages</code>, tell the package
+management system about it by using the command:
+</p><pre class="screen">
+dpkg --merge-avail my_Packages
+</pre><p>
+If you are using APT, you can add the local repository to your
+<span class="citerefentry"><span class="refentrytitle">sources.list</span>(5)</span>
+file, too.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="diverse"></a>11.11. Some users like mawk, others like gawk; some like vim, others like elvis; some like trn, others like tin; how does Debian support diversity?</h2></div></div></div><p>
+There are several cases where two packages provide two different versions of a
+program, both of which provide the same core functionality.  Users might prefer
+one over another out of habit, or because the user interface of one package is
+somehow more pleasing than the interface of another.  Other users on the same
+system might make a different choice.
+</p><p>
+Debian uses a "virtual" package system to allow system administrators to choose
+(or let users choose) their favorite tools when there are two or more that
+provide the same basic functionality, yet satisfy package dependency
+requirements without specifying a particular package.
+</p><p>
+For example, there might exist two different versions of newsreaders on a
+system.  The news server package might 'recommend' that there exist
+<span class="emphasis"><em>some</em></span> news reader on the system, but the choice of
+<code class="literal">tin</code> or <code class="literal">trn</code> is left up to the individual
+user.  This is satisfied by having both the <code class="systemitem">tin</code><a id="idm2057" class="indexterm"></a> and <code class="systemitem">trn</code><a id="idm2061" class="indexterm"></a>
+packages provide the virtual package <code class="systemitem">news-reader</code><a id="idm2065" class="indexterm"></a>.  <span class="emphasis"><em>Which</em></span> program is
+invoked is determined by a link pointing from a file with the virtual package
+name <code class="literal">/etc/alternatives/news-reader</code> to the selected file,
+e.g., <code class="literal">/usr/bin/trn</code>.
+</p><p>
+A single link is insufficient to support full use of an alternate program;
+normally, manual pages, and possibly other supporting files must be selected as
+well.  The Perl script <code class="literal">update-alternatives</code> provides a way of
+ensuring that all the files associated with a specified package are selected as
+a system default.
+</p><p>
+For example, to check what executables provide `x-window-manager', run:
+</p><pre class="screen">
+update-alternatives --display x-window-manager
+</pre><p>
+If you want to change it, run:
+</p><pre class="screen">
+update-alternatives --config x-window-manager
+</pre><p>
+And follow the instructions on the screen (basically, press the number next to
+the entry you'd like better).
+</p><p>
+If a package doesn't register itself as a window manager for some reason (file
+a bug if it's in error), or if you use a window manager from /usr/local
+directory, the selections on screen won't contain your preferred entry.  You
+can update the link through command line options, like this:
+</p><pre class="screen">
+update-alternatives --install /usr/bin/x-window-manager \
+  x-window-manager /usr/local/bin/wmaker-cvs 50
+</pre><p>
+The first argument to `--install' option is the symlink that points to
+/etc/alternatives/NAME, where NAME is the second argument.  The third argument
+is the program to which /etc/alternatives/NAME should point to, and the fourth
+argument is the priority (larger value means the alternative will more probably
+get picked automatically).
+</p><p>
+To remove an alternative you added, simply run:
+</p><pre class="screen">
+update-alternatives --remove x-window-manager /usr/local/bin/wmaker-cvs
+</pre></div><div class="footnotes"><br /><hr width="100" align="left" /><div id="ftn.idm1880" class="footnote"><p><a href="#idm1880" class="para"><sup class="para">[6] </sup></a> In 2014, Debian changed its default init
+system from System V init to systemd.  Debian 8 "jessie" in April 2015 was the
+first release to ship with systemd as default init.  Four <a class="ulink" href="https://www.debian.org/devel/tech-ctte#status" target="_top">decisions</a> of the
+Debian Technical Committee were involved: <a class="ulink" href="https://lists.debian.org/20140211193904.GX24404@rzlab.ucr.edu" target="_top">Bug
+#727708</a> 2014-02-11: "The committee decided that the default init system
+for Linux architectures in jessie should be systemd."  <a class="ulink" href="https://lists.debian.org/20140801023630.GF12356@teltox.donarmstrong.com" target="_top">Bug
+#746715</a> 2014-08-01: "The technical committee expects maintainers to
+continue to support the multiple available init systems", and merge reasonable
+contributions.  <a class="ulink" href="https://lists.debian.org/20141116001628.GO32192@teltox.donarmstrong.com" target="_top">Bug
+#746578</a> 2014-11-15: "The committee decided that systemd-shim should be
+the first listed alternative dependency of libpam-systemd instead of
+systemd-sysv."  This decision made it easier to keep running a non-systemd
+Debian system.  <a class="ulink" href="https://lists.debian.org/21592.61064.527547.410074@chiark.greenend.org.uk" target="_top">Bug
+#762194</a>2017-11-04: "On automatic init system switching on upgrade"
+</p></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="kernel.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="support.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 10. Debian and the kernel </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 12. Getting support for Debian GNU/Linux</td></tr></table></div></body></html>

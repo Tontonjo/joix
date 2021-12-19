@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 14. Redistributing Debian GNU/Linux in a commercial product</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="contributing.en.html" title="Chapter 13. Contributing to the Debian Project" /><link rel="next" href="nextrelease.en.html" title="Chapter 15. Changes expected in the next major release of Debian" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 14. Redistributing Debian GNU/Linux in a commercial product</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="contributing.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="nextrelease.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="redistributing"></a>Chapter 14. Redistributing Debian GNU/Linux in a commercial product</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="redistributing.en.html#sellcds">14.1. Can I make and sell Debian CDs?</a></span></dt><dt><span class="section"><a href="redistributing.en.html#packagednonfree">14.2. Can Debian be packaged with non-free software?</a></span></dt><dt><span class="section"><a href="redistributing.en.html#childistro">14.3. I am making a special Linux distribution for a "vertical market". Can I use Debian GNU/Linux for the guts of a Linux system and add my own applications on top of it?</a></span></dt><dt><span class="section"><a href="redistributing.en.html#commercialdebs">14.4. Can I put my commercial program in a Debian "package" so that it installs effortlessly on any Debian system?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="sellcds"></a>14.1. Can I make and sell Debian CDs?</h2></div></div></div><p>
+Go ahead.  You do not need permission to distribute anything we have
+<span class="emphasis"><em>released</em></span>, so that you can master your CD as soon as the
+beta-test ends.  You do not have to pay us anything.  Of course, all CD
+manufacturers must honor the licenses of the programs in Debian.  For example,
+many of the programs are licensed under the GPL, which requires you to
+distribute their source code.
+</p><p>
+Also, we will publish a list of CD manufacturers who donate money, software,
+and time to the Debian project, and we will encourage users to buy from
+manufacturers who donate, so it is good advertising to make donations.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="packagednonfree"></a>14.2. Can Debian be packaged with non-free software?</h2></div></div></div><p>
+Yes.  While all the main components of Debian are free software, we provide a
+non-free directory for programs that are not freely redistributable.
+</p><p>
+CD manufacturers <span class="emphasis"><em>may</em></span> be able to distribute the programs we
+have placed in that directory, depending on the license terms or their private
+arrangements with the authors of those software packages.  CD manufacturers can
+also distribute the non-free software they get from other sources on the same
+CD.  This is nothing new: free and commercial software are distributed on the
+same CD by many manufacturers now.  Of course we still encourage software
+authors to release the programs they write as free software.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="childistro"></a>14.3. I am making a special Linux distribution for a "vertical market". Can I use Debian GNU/Linux for the guts of a Linux system and add my own applications on top of it?</h2></div></div></div><p>
+Yes.  Debian-derived distributions are being created both in close cooperation
+with the Debian project itself and by external parties.  One can use the <a class="ulink" href="https://www.debian.org/blends/" target="_top">Debian Pure Blends</a> framework to
+work together with Debian; <a class="ulink" href="https://wiki.debian.org/DebianEdu/" target="_top">DebianEdu/Skolelinux</a> is one
+such project.
+</p><p>
+There are several other Debian-derived distributions already on the market,
+such as grml, LMDE (Linux Mint Debian Edition), Knoppix and Ubuntu, that are
+targeted at a different kind of audience than the original Debian GNU/Linux is,
+but use most of our components in their product.
+</p><p>
+Debian also provides a mechanism to allow developers and system administrators
+to install local versions of selected files in such a way that they will not be
+overwritten when other packages are upgraded.  This is discussed further in the
+question on <a class="xref" href="customizing.en.html#divert" title="11.9. How do I override a file installed by a package, so that a different version can be used instead?">Section 11.9, “How do I override a file installed by a package, so that a different version can be used instead?”</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="commercialdebs"></a>14.4. Can I put my commercial program in a Debian "package" so that it installs effortlessly on any Debian system?</h2></div></div></div><p>
+Go right ahead.  The package tool is free software; the packages may or may not
+be free software, it can install them all.
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="contributing.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="nextrelease.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 13. Contributing to the Debian Project </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 15. Changes expected in the next major release of Debian</td></tr></table></div></body></html>

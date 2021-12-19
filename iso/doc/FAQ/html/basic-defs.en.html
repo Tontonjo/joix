@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 1. Definitions and overview</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="next" href="getting-debian.en.html" title="Chapter 2. Getting and installing Debian GNU/Linux" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 1. Definitions and overview</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="index.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="getting-debian.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="basic-defs"></a>Chapter 1. Definitions and overview</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="basic-defs.en.html#whatisfaq">1.1. What is this FAQ?</a></span></dt><dt><span class="section"><a href="basic-defs.en.html#whatisdebian">1.2. What is Debian GNU/Linux?</a></span></dt><dt><span class="section"><a href="basic-defs.en.html#linux">1.3. OK, now I know what Debian is... what is Linux?!</a></span></dt><dt><span class="section"><a href="basic-defs.en.html#non-linux">1.4. Does Debian just do GNU/Linux?</a></span></dt><dt><span class="section"><a href="basic-defs.en.html#difference">1.5. What is the difference between Debian GNU/Linux and other Linux distributions? Why should I choose Debian over some other distribution?</a></span></dt><dt><span class="section"><a href="basic-defs.en.html#gnu">1.6. How does the Debian project fit in or compare with the Free Software Foundation's GNU project?</a></span></dt><dt><span class="section"><a href="basic-defs.en.html#pronunciation">1.7. How does one pronounce Debian and what does this word mean?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="whatisfaq"></a>1.1. What is this FAQ?</h2></div></div></div><p>
+This document gives frequently asked questions (with their answers!) about the
+Debian distribution (Debian GNU/Linux and others) and about the Debian project.
+If applicable, pointers to other documentation will be given: we won't quote
+large parts of external documentation in this document.  You'll find out that
+some answers assume some knowledge of Unix-like operating systems.  We'll try
+to assume as little prior knowledge as possible: answers to general beginners
+questions will be kept simple.
+</p><p>
+If you can't find what you're looking for in this FAQ, be sure to check out
+<a class="xref" href="support.en.html#debiandocs" title="12.1. What other documentation exists on and for a Debian system?">Section 12.1, “What other documentation exists on and for a Debian system?”</a>.  If even that doesn't help, refer to <a class="xref" href="faqinfo.en.html#feedback" title="16.2. Feedback">Section 16.2, “Feedback”</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="whatisdebian"></a>1.2. What is Debian GNU/Linux?</h2></div></div></div><p>
+Debian GNU/Linux is a particular <span class="emphasis"><em>distribution</em></span> of the Linux
+operating system, and numerous packages that run on it.
+</p><p>
+Debian GNU/Linux is:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<span class="strong"><strong>full featured</strong></span>: Debian includes more than
+58000 software packages at present.  Users can select which packages to
+install; Debian provides a tool for this purpose.  You can find a list and
+descriptions of the packages currently available in Debian at any of the Debian
+<a class="ulink" href="https://www.debian.org/distrib/ftplist" target="_top">mirror sites</a>.
+</p></li><li class="listitem"><p>
+<span class="strong"><strong>free to use and redistribute</strong></span>: There is no
+consortium membership or payment required to participate in its distribution
+and development.  All packages that are formally part of Debian GNU/Linux are
+free to redistribute, usually under terms specified by the GNU General Public
+License.
+</p><p>
+The Debian FTP archives also carry approximately 930 software packages (in the
+<code class="literal">non-free</code> and <code class="literal">contrib</code> sections), which are
+distributable under specific terms included with each package.
+</p></li><li class="listitem"><p>
+<span class="strong"><strong>dynamic</strong></span>: With about 1343 volunteers
+constantly contributing new and improved code, Debian is evolving rapidly.  The
+FTP archives are updated twice every day.
+</p></li></ul></div><p>
+Most Linux users run a specific <span class="emphasis"><em>distribution</em></span> of Linux,
+like Debian GNU/Linux.  However, in principle, users could obtain the Linux
+kernel via the Internet or from elsewhere, and compile it themselves.  They
+could then obtain source code for many applications in the same way, compile
+the programs, then install them into their systems.  For complicated programs,
+this process can be not only time-consuming but error-prone.  To avoid it,
+users often choose to obtain the operating system and the application packages
+from one of the Linux distributors.  What distinguishes the various Linux
+distributors are the software, protocols, and practices they use for packaging,
+installing, and tracking applications packages on users' systems, combined with
+installation and maintenance tools, documentation, and other services.
+</p><p>
+Debian GNU/Linux is the result of a volunteer effort to create a free,
+high-quality Unix-compatible operating system, complete with a suite of
+applications.  The idea of a free Unix-like system originates from the GNU
+project, and many of the applications that make Debian GNU/Linux so useful were
+developed by the GNU project.
+</p><p>
+For Debian, free has the GNUish meaning (see the <a class="ulink" href="https://www.debian.org/social_contract#guidelines" target="_top">Debian Free Software
+Guidelines</a>).  When we speak of free software, we are referring to
+freedom, not price.  Free software means that you have the freedom to
+distribute copies of free software, that you receive source code or can get it
+if you want it, that you can change the software or use pieces of it in new
+free programs; and that you know you can do these things.
+</p><p>
+The Debian Project was created by Ian Murdock in 1993, initially under the
+sponsorship of the Free Software Foundation's GNU project.  Today, Debian's
+developers think of it as a direct descendent of the GNU project.
+</p><p>
+Although Debian GNU/Linux itself is free software, it is a base upon which
+value-added Linux distributions can be built.  By providing a reliable,
+full-featured base system, Debian provides Linux users with increased
+compatibility, and allows Linux distribution creators to eliminate duplication
+of effort and focus on the things that make their distribution special.  See
+<a class="xref" href="redistributing.en.html#childistro" title="14.3. I am making a special Linux distribution for a &quot;vertical market&quot;. Can I use Debian GNU/Linux for the guts of a Linux system and add my own applications on top of it?">Section 14.3, “I am making a special Linux distribution for a "vertical market". Can I use Debian GNU/Linux for the guts of a Linux system and add my own applications on top of it?”</a> for more information.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="linux"></a>1.3. OK, now I know what Debian is... what is Linux?!</h2></div></div></div><p>
+In short, Linux is the kernel of a Unix-like operating system.  It was
+originally designed for 386 (and better) PCs; today Linux also runs on a dozen
+of other systems.  Linux is written by Linus Torvalds and many computer
+scientists around the world.
+</p><p>
+Besides its kernel, a "Linux" system usually has:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+a file system that follows the Linux Filesystem Hierarchy Standard <a class="ulink" href="http://www.pathname.com/fhs" target="_top">http://www.pathname.com/fhs</a>.
+</p></li><li class="listitem"><p>
+a wide range of Unix utilities, many of which have been developed by the GNU
+project and the Free Software Foundation.
+</p></li></ul></div><p>
+The combination of the Linux kernel, the file system, the GNU and FSF
+utilities, and the other utilities are designed to achieve compliance with the
+POSIX (IEEE 1003.1) standard; see <a class="xref" href="compatibility.en.html#otherunices" title="4.4. How source code compatible is Debian with other Unix systems?">Section 4.4, “How source code compatible is Debian with other Unix systems?”</a>.
+</p><p>
+For more information about Linux, see <a class="ulink" href="https://www.linux.org/info/" target="_top">What is Linux</a> by <a class="ulink" href="https://www.linux.org/" target="_top">Linux Online</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="non-linux"></a>1.4. Does Debian just do GNU/Linux?</h2></div></div></div><p>
+Currently, Debian is only available for Linux, but with Debian GNU/Hurd and
+Debian on BSD kernels, we have started to offer non-Linux-based OSes as a
+development, server and desktop platform, too.  However, these non-linux ports
+are not officially released yet.
+</p><p>
+The oldest porting effort is Debian GNU/Hurd.
+</p><p>
+The Hurd is a set of servers running on top of the GNU Mach microkernel.
+Together they build the base for the GNU operating system.
+</p><p>
+Please see <a class="ulink" href="https://www.gnu.org/software/hurd" target="_top">https://www.gnu.org/software/hurd</a>
+for more information about the GNU/Hurd in general, and <a class="ulink" href="https://www.debian.org/ports/hurd/" target="_top">https://www.debian.org/ports/hurd/</a>
+for more information about Debian GNU/Hurd.
+</p><p>
+A second effort is the port to a BSD kernel.  People are working with the
+FreeBSD kernel.
+</p><p>
+See <a class="ulink" href="https://www.debian.org/ports/#nonlinux" target="_top">https://www.debian.org/ports/#nonlinux</a>
+for more information about these non-linux ports.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="difference"></a>1.5. What is the difference between Debian GNU/Linux and other Linux distributions? Why should I choose Debian over some other distribution?</h2></div></div></div><p>
+These key features distinguish Debian from other Linux distributions:
+</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">Freedom:</span></dt><dd><p>
+As stated in the <a class="ulink" href="https://www.debian.org/social_contract" target="_top">Debian
+Social Contract</a>, Debian will remain 100% free.  Debian is very strict
+about shipping truly free software.  The guidelines used to determine if a work
+is "free" are provided in <a class="ulink" href="https://www.debian.org/social_contract#guidelines" target="_top">The Debian Free Software
+Guidelines (DFSG)</a>.
+</p></dd><dt><span class="term">The Debian package maintenance system:</span></dt><dd><p>
+The entire system, or any individual component of it, can be upgraded in place
+without reformatting, without losing custom configuration files, and (in most
+cases) without rebooting the system.  Most Linux distributions available today
+have some kind of package maintenance system; the Debian package maintenance
+system is unique and particularly robust (see <a class="xref" href="pkg-basics.en.html" title="Chapter 7. Basics of the Debian package management system">Chapter 7, <em>Basics of the Debian package management system</em></a>).
+</p></dd><dt><span class="term">Open development:</span></dt><dd><p>
+Whereas many other Linux distributions are developed by individuals, small,
+closed groups, or commercial vendors, Debian is a major Linux distribution that
+is being developed by an association of individuals who have made common cause
+to create a free operating system, in the same spirit as Linux and other free
+software.
+</p><p>
+More than 1343 volunteer package maintainers are working on over 58000 packages
+and improving Debian GNU/Linux.  The Debian developers contribute to the
+project not by writing new applications (in most cases), but by packaging
+existing software according to the standards of the project, by communicating
+bug reports to upstream developers, and by providing user support.  See also
+additional information on how to become a contributor in <a class="xref" href="contributing.en.html" title="Chapter 13. Contributing to the Debian Project">Chapter 13, <em>Contributing to the Debian Project</em></a>.
+</p></dd><dt><span class="term">The Universal Operating System:</span></dt><dd><p>
+Debian comes with <a class="ulink" href="https://packages.debian.org/stable/" target="_top">more than
+58000 packages</a> and runs on <a class="ulink" href="https://www.debian.org/ports/" target="_top">10
+architectures</a>.  This is far more than is available for any other
+GNU/Linux distribution.  See <a class="xref" href="software.en.html#apps" title="5.1. What types of applications and development software are available for Debian GNU/Linux?">Section 5.1, “What types of applications and development software are available for Debian GNU/Linux?”</a> for an overview of the
+provided software and see <a class="xref" href="compatibility.en.html#arches" title="4.1. On what hardware architectures/systems does Debian GNU/Linux run?">Section 4.1, “On what hardware architectures/systems does Debian GNU/Linux run?”</a> for a description of the
+supported hardware platforms.
+</p></dd><dt><span class="term">The Bug Tracking System:</span></dt><dd><p>
+The geographical dispersion of the Debian developers required sophisticated
+tools and quick communication of bugs and bug-fixes to accelerate the
+development of the system.  Users are encouraged to send bugs in a formal
+style, which are quickly accessible by WWW archives or via e-mail.  See
+additional information in this FAQ on the management of the bug log in <a class="xref" href="support.en.html#buglogs" title="12.4. Are there logs of known bugs?">Section 12.4, “Are there logs of known bugs?”</a>.
+</p></dd><dt><span class="term">The Debian Policy:</span></dt><dd><p>
+Debian has an extensive specification of our standards of quality, the Debian
+Policy.  This document defines the qualities and standards to which we hold
+Debian packages.
+</p></dd></dl></div><p>
+For additional information about this, please see our web page about <a class="ulink" href="https://www.debian.org/intro/why_debian" target="_top">reasons to choose Debian</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="gnu"></a>1.6. How does the Debian project fit in or compare with the Free Software Foundation's GNU project?</h2></div></div></div><p>
+The Debian system builds on the ideals of free software first championed by the
+<a class="ulink" href="https://www.gnu.org/" target="_top">Free Software Foundation</a> and in
+particular by <a class="ulink" href="https://www.stallman.org/" target="_top">Richard Stallman</a>.
+FSF's powerful system development tools, utilities, and applications are also a
+key part of the Debian system.
+</p><p>
+The Debian Project is a separate entity from the FSF, however we communicate
+regularly and cooperate on various projects.  The FSF explicitly requested that
+we call our system "Debian GNU/Linux", and we are happy to comply with that
+request.
+</p><p>
+The FSF's long-standing objective is to develop a new operating system called
+GNU, based on <a class="ulink" href="https://www.gnu.org/software/hurd" target="_top">Hurd</a>.
+Debian is working with FSF on this system, called <a class="ulink" href="https://www.debian.org/ports/hurd/" target="_top">Debian GNU/Hurd</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="pronunciation"></a>1.7. How does one pronounce Debian and what does this word mean?</h2></div></div></div><p>
+The project name is pronounced Deb'-ee-en, with a short e in Deb, and emphasis
+on the first syllable.  This word is a contraction of the names of Debra and
+Ian Murdock, who founded the project.  (Dictionaries seem to offer some
+ambiguity in the pronunciation of Ian (!), but Ian prefers ee'-en.)
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="index.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="getting-debian.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">The Debian GNU/Linux FAQ </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 2. Getting and installing Debian GNU/Linux</td></tr></table></div></body></html>

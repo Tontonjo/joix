@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 2. Getting and installing Debian GNU/Linux</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="basic-defs.en.html" title="Chapter 1. Definitions and overview" /><link rel="next" href="choosing.en.html" title="Chapter 3. Choosing a Debian distribution" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. Getting and installing Debian GNU/Linux</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="basic-defs.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="choosing.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="getting-debian"></a>Chapter 2. Getting and installing Debian GNU/Linux</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="getting-debian.en.html#version">2.1. What is the latest version of Debian?</a></span></dt><dt><span class="section"><a href="getting-debian.en.html#updatestable">2.2. Are there package upgrades in `stable'?</a></span></dt><dt><span class="section"><a href="getting-debian.en.html#inst-disks">2.3. Where/how can I get the Debian installation images?</a></span></dt><dt><span class="section"><a href="getting-debian.en.html#cdrom">2.4. How do I install Debian from CD-ROMs?</a></span></dt><dt><span class="section"><a href="getting-debian.en.html#cdimage-symlinks">2.5. Why does the official stable released CD-ROM contain symlinks for `frozen' and `unstable'? I thought this CD contains just `stable'!</a></span></dt><dt><span class="section"><a href="getting-debian.en.html#remoteinstall">2.6. Can I get and install Debian directly from a remote Internet site?</a></span></dt><dt><span class="section"><a href="getting-debian.en.html#alternativebootinstaller">2.7. Are there any alternative strategies for booting the system installer?</a></span></dt></dl></div><p>
+The official document giving installation instructions is the <a class="ulink" href="https://www.debian.org/releases/stable/installmanual" target="_top">Debian GNU/Linux
+Installation Guide</a>.  We'll give some additional notes about getting and
+installing Debian GNU/Linux here.
+</p><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="version"></a>2.1. What is the latest version of Debian?</h2></div></div></div><p>
+Currently there are three versions of Debian GNU/Linux:
+</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="emphasis"><em>release 10, a.k.a. the `stable' distribution or buster</em></span></span></dt><dd><p>
+This is stable and well tested software, it changes if major security or
+usability fixes are incorporated.
+</p></dd><dt><span class="term"><span class="emphasis"><em>the `testing' distribution, currently called bullseye</em></span></span></dt><dd><p>
+This is where packages that will be released as the next `stable' are placed;
+they've had some testing in unstable but they may not be completely fit for
+release yet.  This distribution is updated more often than `stable', but not
+more often than `unstable'.
+</p></dd><dt><span class="term"><span class="emphasis"><em>the `unstable' distribution</em></span></span></dt><dd><p>
+This is the version currently under development; it is updated continuously.
+You can retrieve packages from the `unstable' archive on any Debian FTP site
+and use them to upgrade your system at any time, but you may not expect the
+system to be as usable or as stable as before - that's why it's called
+`<span class="strong"><strong>unstable</strong></span>'!
+</p></dd></dl></div><p>
+Please see <a class="xref" href="ftparchives.en.html#dists" title="6.1. How many Debian distributions are there?">Section 6.1, “How many Debian distributions are there?”</a> for more information.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="updatestable"></a>2.2. Are there package upgrades in `stable'?</h2></div></div></div><p>
+No new functionality is added to the stable release.  Once a Debian version is
+released and tagged `stable' it will only get security updates.  That is, only
+packages for which a security vulnerability has been found after the release
+will be upgraded.  All the security updates are served through <a class="ulink" href="ftp://security.debian.org" target="_top">security.debian.org</a>.
+</p><p>
+Security updates serve one purpose: to supply a fix for a security
+vulnerability.  They are not a method for sneaking additional changes into the
+stable release without going through normal point release procedure.
+Consequently, fixes for packages with security issues will not upgrade the
+software.  The Debian Security Team will backport the necessary fixes to the
+version of the software distributed in `stable' instead.
+</p><p>
+For more information related to security support please read the <a class="ulink" href="https://www.debian.org/security/faq" target="_top">Security FAQ</a> or the <a class="ulink" href="https://www.debian.org/doc/manuals/securing-debian-howto/" target="_top">Debian Security
+Manual</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="inst-disks"></a>2.3. Where/how can I get the Debian installation images?</h2></div></div></div><p>
+You can get the installation images by downloading the appropriate files from
+the <a class="ulink" href="https://www.debian.org/distrib/" target="_top">Debian website</a>.
+</p><p>
+Please refer to <a class="ulink" href="https://www.debian.org/CD" target="_top">Debian GNU/Linux on
+CDs</a> for more information about CD (and DVD) images.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="cdrom"></a>2.4. How do I install Debian from CD-ROMs?</h2></div></div></div><p>
+Installing Debian from CD is straightforward: configure your system for booting
+off a CD, insert your CD, and reboot.  Your system will now be running the
+Debian Installer.  See the <a class="ulink" href="https://www.debian.org/releases/stable/installmanual" target="_top">Debian GNU/Linux
+Installation Guide</a> for more information.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="cdimage-symlinks"></a>2.5. Why does the official stable released CD-ROM contain symlinks for `frozen' and `unstable'? I thought this CD contains just `stable'!</h2></div></div></div><p>
+Official Debian CD images indeed contain symlinks like:
+</p><pre class="screen">
+ /dists/frozen -&gt; buster/
+ /dists/stable -&gt; buster/
+ /dists/testing -&gt; buster/
+ /dists/unstable -&gt; buster/
+</pre><p>
+so that they work when your sources.list has an entry like
+</p><pre class="screen">
+ deb cdrom:[&lt;name as on cd label&gt;]/ unstable main [...]
+</pre><p>
+.
+</p><p>
+The fact these symlinks are present does <span class="emphasis"><em>not</em></span> mean the
+image is `unstable' or `testing' or anything.  Read the CD label in
+<code class="filename">/.disk/info</code> to find out which Debian version it contains.
+This information is also present in <code class="filename">/README.txt</code> on the CD.
+</p><p>
+Read <a class="ulink" href="https://www.debian.org/releases" target="_top">https://www.debian.org/releases</a>
+to find out what the current `stable' and `testing' releases are.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="remoteinstall"></a>2.6. Can I get and install Debian directly from a remote Internet site?</h2></div></div></div><p>
+Yes.  You can boot the Debian installation system from a set of files you can
+download from our FTP site and its mirrors.
+</p><p>
+You can download a small CD image file, create a bootable CD from it, install
+the basic system from it and the rest over the network.  For more information
+please see <a class="ulink" href="https://www.debian.org/CD/netinst/" target="_top">https://www.debian.org/CD/netinst/</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="alternativebootinstaller"></a>2.7. Are there any alternative strategies for booting the system installer?</h2></div></div></div><p>
+Yes.  Apart from CD or DVD, you can install Debian GNU/Linux by booting from
+USB memory stick, directly from hard disk, or using TFTP net booting.  For
+installing on multiple computers it's possible to do fully automatic
+installations.  NB: not all methods are supported by all computer
+architectures.  Once the installer has booted, the rest of the system can be
+downloaded over the network, or installed from local media.  See the <a class="ulink" href="https://www.debian.org/releases/stable/installmanual" target="_top">Debian GNU/Linux
+Installation Guide</a> for more information.
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="basic-defs.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="choosing.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 1. Definitions and overview </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 3. Choosing a Debian distribution</td></tr></table></div></body></html>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 9. Keeping your Debian system up-to-date</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="pkgtools.en.html" title="Chapter 8. The Debian package management tools" /><link rel="next" href="kernel.en.html" title="Chapter 10. Debian and the kernel" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 9. Keeping your Debian system up-to-date</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pkgtools.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="kernel.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="uptodate"></a>Chapter 9. Keeping your Debian system up-to-date</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="uptodate.en.html#howtocurrent">9.1. How can I keep my Debian system current?</a></span></dt><dd><dl><dt><span class="section"><a href="uptodate.en.html#aptitude-upgrade">9.1.1. aptitude</a></span></dt><dt><span class="section"><a href="uptodate.en.html#apt">9.1.2. apt-get and apt-cdrom</a></span></dt><dt><span class="section"><a href="uptodate.en.html#mirror">9.1.3. mirror</a></span></dt></dl></dd><dt><span class="section"><a href="uptodate.en.html#upgradesingle">9.2. Must I go into single user mode in order to upgrade a package?</a></span></dt><dt><span class="section"><a href="uptodate.en.html#savedebs">9.3. Do I have to keep all those .deb archive files on my disk?</a></span></dt><dt><span class="section"><a href="uptodate.en.html#keepingalog">9.4. How can I keep a log of the packages I added to the system? I'd like to know when upgrades and removals have occurred and on which packages!</a></span></dt><dt><span class="section"><a href="uptodate.en.html#autoupdate">9.5. Can I automatically update the system?</a></span></dt><dt><span class="section"><a href="uptodate.en.html#aptcacher">9.6. I have several machines; how can I download the updates only one time?</a></span></dt></dl></div><p>
+One of Debian's goals is to provide a consistent upgrade path and a secure
+upgrade process.  We always do our best to make upgrading to new releases a
+smooth procedure.  In case there's some important note to add to the upgrade
+process, the packages will alert the user, and often provide a solution to a
+possible problem.
+</p><p>
+You should also read the Release Notes document that describes the details of
+specific upgrades.  It is available on the Debian website at <a class="ulink" href="https://www.debian.org/releases/stable/releasenotes" target="_top">https://www.debian.org/releases/stable/releasenotes</a>
+and is also shipped on the Debian CDs, DVDs and Blu-ray discs.
+</p><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="howtocurrent"></a>9.1. How can I keep my Debian system current?</h2></div></div></div><p>
+One could simply execute an anonymous ftp call to a Debian archive, then peruse
+the directories until one finds the desired file, and then fetch it, and
+finally install it using <code class="literal">dpkg</code>.  Note that
+<code class="literal">dpkg</code> will install upgrade files in place, even on a running
+system.  Sometimes, a revised package will require the installation of a newly
+revised version of another package, in which case the installation will fail
+until/unless the other package is installed.
+</p><p>
+Many people find this approach much too time-consuming, since Debian evolves so
+quickly -- typically, a dozen or more new packages are uploaded every week.
+This number is larger just before a new major release.  To deal with this
+avalanche, many people prefer to use a more automated method.  Several
+different packages are available for this purpose:
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="aptitude-upgrade"></a>9.1.1. aptitude</h3></div></div></div><p>
+<span class="command"><strong>aptitude</strong></span> is the recommended package manager for Debian GNU/Linux
+systems, and is described in <a class="xref" href="pkgtools.en.html#aptitude" title="8.1.3. aptitude">Section 8.1.3, “aptitude”</a>.
+</p><p>
+Before you can use <span class="command"><strong>aptitude</strong></span> to make an upgrade, you'll have
+to edit the <code class="literal">/etc/apt/sources.list</code> file to set it up.  If you
+wish to upgrade to the latest stable version of Debian, you'll probably want to
+use a source like this one:
+</p><pre class="screen">
+http://ftp.us.debian.org/debian stable main contrib
+</pre><p>
+You can replace ftp.us.debian.org (the mirror in the United States) with the
+name of a faster Debian mirror near you.  See the mirror list at <a class="ulink" href="https://www.debian.org/mirror/list" target="_top">https://www.debian.org/mirror/list</a>
+for more information.
+</p><p>
+Or you can use the redirector service httpredir.debian.org which aims to solve
+the problem of choosing a Debian mirror.  It uses the geographic location of
+the user and other information to choose the best mirror that can serve the
+files.  To take advantage of it use a source like this one:
+</p><pre class="screen">
+http://httpredir.debian.org/debian stable main contrib
+</pre><p>
+More details on this can be found in the
+<span class="citerefentry"><span class="refentrytitle">sources.list</span>(5)</span>
+manual page.
+</p><p>
+To update your system from the command line, run
+</p><pre class="screen">
+aptitude update
+</pre><p>
+followed by
+</p><pre class="screen">
+aptitude full-upgrade
+</pre><p>
+Answer any questions that might come up, and your system will be upgraded.
+</p><p>
+Note that <span class="command"><strong>aptitude</strong></span> is not the recommended tool for doing
+upgrades from one Debian GNU/Linux release to another.  Use
+<span class="command"><strong>apt-get</strong></span> instead.  For upgrades between releases you should
+read the <a class="ulink" href="https://www.debian.org/releases/stable/releasenotes" target="_top">Release Notes</a>.
+This document describes in detail the recommended steps for upgrades from
+previous releases as well as known issues you should consider before upgrading.
+</p><p>
+For details, see the manual page
+<span class="citerefentry"><span class="refentrytitle">aptitude</span>(8)</span>,
+and the file <code class="filename">/usr/share/aptitude/README</code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="apt"></a>9.1.2. apt-get and apt-cdrom</h3></div></div></div><p>
+An alternative to <span class="command"><strong>aptitude</strong></span> is <span class="command"><strong>apt-get</strong></span>
+which is an APT-based command-line tool (described previously in <a class="xref" href="pkgtools.en.html#apt-get" title="8.1.2. APT">Section 8.1.2, “APT”</a>).
+</p><p>
+<span class="command"><strong>apt-get</strong></span>, the APT-based command-line tool for handling
+packages, provides a simple, safe way to install and upgrade packages.
+</p><p>
+To use <span class="command"><strong>apt-get</strong></span>, edit the
+<code class="literal">/etc/apt/sources.list</code> file to set it up, just as for <a class="xref" href="uptodate.en.html#aptitude-upgrade" title="9.1.1. aptitude">Section 9.1.1, “aptitude”</a>.
+</p><p>
+Then run
+</p><pre class="screen">
+apt-get update
+</pre><p>
+followed by
+</p><pre class="screen">
+apt-get dist-upgrade
+</pre><p>
+Answer any questions that might come up, and your system will be upgraded.  See
+also the
+<span class="citerefentry"><span class="refentrytitle">apt-get</span>(8)</span>
+manual page, as well as <a class="xref" href="pkgtools.en.html#apt-get" title="8.1.2. APT">Section 8.1.2, “APT”</a>.
+</p><p>
+If you want to use CDs/DVDs/BDs to install packages, you can use
+<span class="command"><strong>apt-cdrom</strong></span>.  For details, please see the Release Notes,
+section "Adding APT sources from optical media".
+</p><p>
+Please note that when you get and install the packages, you'll still have them
+kept in your /var directory hierarchy.  To keep your partition from
+overflowing, remember to delete extra files using <code class="literal">apt-get
+clean</code> and <code class="literal">apt-get autoclean</code>, or to move them
+someplace else (hint: use <code class="systemitem">apt-move</code><a id="idm1712" class="indexterm"></a>).
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="mirror"></a>9.1.3. mirror</h3></div></div></div><p>
+This Perl script, and its (optional) manager program called
+<span class="command"><strong>mirror-master</strong></span>, can be used to fetch user-specified parts of
+a directory tree from a specified host <span class="emphasis"><em>via</em></span> anonymous FTP.
+</p><p>
+<span class="command"><strong>mirror</strong></span> is particularly useful for downloading large volumes
+of software.  After the first time files have been downloaded from a site, a
+file called <code class="literal">.mirrorinfo</code> is stored on the local host.
+Changes to the remote file system are tracked automatically by
+<span class="command"><strong>mirror</strong></span>, which compares this file to a similar file on the
+remote system and downloads only changed files.
+</p><p>
+The <span class="command"><strong>mirror</strong></span> program is generally useful for updating local
+copies of remote directory trees.  The files fetched need not be Debian files.
+(Since <span class="command"><strong>mirror</strong></span> is a Perl script, it can also run on non-Unix
+systems.) Though the <span class="command"><strong>mirror</strong></span> program provides mechanisms for
+excluding files with names matching user-specified strings, this program is
+most useful when the objective is to download whole directory trees, rather
+than selected packages.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="upgradesingle"></a>9.2. Must I go into single user mode in order to upgrade a package?</h2></div></div></div><p>
+No.  Packages can be upgraded in place, even in running systems.  Debian has a
+<code class="literal">start-stop-daemon</code> program that is invoked to stop, then
+restart running process if necessary during a package upgrade.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="savedebs"></a>9.3. Do I have to keep all those .deb archive files on my disk?</h2></div></div></div><p>
+No.  If you have downloaded the files to your disk then after you have
+installed the packages, you can remove them from your system, e.g. by running
+<code class="literal">aptitude clean</code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="keepingalog"></a>9.4. How can I keep a log of the packages I added to the system? I'd like to know when upgrades and removals have occurred and on which packages!</h2></div></div></div><p>
+Passing the <code class="literal">--log</code>-option to <span class="command"><strong>dpkg</strong></span> makes
+<span class="command"><strong>dpkg</strong></span> log status change updates and actions.  It logs both
+the <span class="command"><strong>dpkg</strong></span>-invokation (e.g.
+</p><pre class="screen">
+2005-12-30 18:10:33 install hello 1.3.18 2.1.1-4
+</pre><p>
+) and the results (e.g.
+</p><pre class="screen">
+2005-12-30 18:10:35 status installed hello 2.1.1-4
+</pre><p>
+) If you'd like to log all your <span class="command"><strong>dpkg</strong></span> invocations (even those
+done using frontends like <span class="command"><strong>aptitude</strong></span>), you could add
+</p><pre class="screen">
+log /var/log/dpkg.log
+</pre><p>
+to your <code class="filename">/etc/dpkg/dpkg.cfg</code>.  Be sure the created logfile
+gets rotated periodically.  If you're using <span class="command"><strong>logrotate</strong></span>, this
+can be achieved by creating a file <code class="filename">/etc/logrotate.d/dpkg</code>
+with the following lines
+</p><pre class="screen">
+/var/log/dpkg {
+  missingok
+  notifempty
+}
+</pre><p>
+More details on <span class="command"><strong>dpkg</strong></span> logging can be found in the
+<span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span>
+manual page.
+</p><p>
+<span class="command"><strong>aptitude</strong></span> logs the package installations, removals, and
+upgrades that it intends to perform to <code class="filename">/var/log/aptitude</code>.
+Note that the <span class="emphasis"><em>results</em></span> of those actions are not recorded in
+this file!
+</p><p>
+Another way to record your actions is to run your package management session
+within the
+<span class="citerefentry"><span class="refentrytitle">script</span>(1)</span>
+program.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="autoupdate"></a>9.5. Can I automatically update the system?</h2></div></div></div><p>
+Yes.  You can use <span class="command"><strong>cron-apt</strong></span>; this tool updates the system at
+regular intervals using a cron job.  By default it just updates the package
+list and downloads new packages, but without installing them.
+</p><p>
+Note: Automatic upgrade of packages is <span class="strong"><strong>NOT</strong></span>
+recommended in <span class="emphasis"><em>testing</em></span> or <span class="emphasis"><em>unstable</em></span>
+systems as this might bring unexpected behaviour and remove packages without
+notice.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="aptcacher"></a>9.6. I have several machines; how can I download the updates only one time?</h2></div></div></div><p>
+If you have more than one Debian machine on your network, it is useful to use
+<span class="command"><strong>apt-cacher</strong></span> to keep all of your Debian systems up-to-date.
+</p><p>
+<span class="command"><strong>apt-cacher</strong></span> reduces the bandwidth requirements of Debian
+mirrors by restricting the frequency of Packages, Releases and Sources file
+updates from the back end and only doing a single fetch for any file,
+independently of the actual request from the proxy.
+<span class="command"><strong>apt-cacher</strong></span> automatically builds a Debian HTTP mirror based
+on requests which pass through the proxy.
+</p><p>
+Of course, you can get the same benefit if you are already using a standard
+caching proxy and all your systems are configured to use it.
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pkgtools.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="kernel.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 8. The Debian package management tools </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 10. Debian and the kernel</td></tr></table></div></body></html>

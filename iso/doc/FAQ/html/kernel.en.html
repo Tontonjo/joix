@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 10. Debian and the kernel</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="uptodate.en.html" title="Chapter 9. Keeping your Debian system up-to-date" /><link rel="next" href="customizing.en.html" title="Chapter 11. Customizing your Debian GNU/Linux system" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 10. Debian and the kernel</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="uptodate.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="customizing.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="kernel"></a>Chapter 10. Debian and the kernel</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="kernel.en.html#non-debian-kernel">10.1. Can I install and compile a kernel without some Debian-specific tweaking?</a></span></dt><dt><span class="section"><a href="kernel.en.html#customkernel">10.2. What tools does Debian provide to build custom kernels?</a></span></dt><dt><span class="section"><a href="kernel.en.html#modules">10.3. What special provisions does Debian provide to deal with modules?</a></span></dt><dt><span class="section"><a href="kernel.en.html#removeoldkernel">10.4. Can I safely de-install an old kernel package, and if so, how?</a></span></dt><dt><span class="section"><a href="kernel.en.html#moreinfo">10.5. Where can I get more information about Linux packages for Debian?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="non-debian-kernel"></a>10.1. Can I install and compile a kernel without some Debian-specific tweaking?</h2></div></div></div><p>
+Yes.
+</p><p>
+There's only one common catch: the Debian C libraries are built with the most
+recent <span class="emphasis"><em>stable</em></span> releases of the <span class="strong"><strong>kernel</strong></span> headers.  If you happen to need to compile a
+program with kernel headers newer than the ones from the stable branch, then
+you should either upgrade the package containing the headers (<code class="systemitem">linux-libc-dev</code><a id="idm1793" class="indexterm"></a>), or use the new headers from an
+unpacked tree of the newer kernel.  That is, if the kernel sources are in
+<code class="filename">/usr/src/linux</code>, then you should add
+<code class="literal">-I/usr/src/linux/include/</code> to your command line when
+compiling.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="customkernel"></a>10.2. What tools does Debian provide to build custom kernels?</h2></div></div></div><p>
+Users who wish to (or must) build a custom kernel are encouraged to use the
+Debian package target included with recent versions of the kernel build system.
+After configuring the kernel, simply run the following command:
+</p><pre class="screen">
+make deb-pkg
+</pre><p>
+The new kernel package will be created in the directory one level above the
+kernel source tree, and it may be installed using <code class="literal">dpkg -i</code>.
+</p><p>
+Users must separately download the source code for the most recent kernel (or
+the kernel of their choice) from their favorite Linux archive site, unless a
+<code class="systemitem">linux-source-<em class="replaceable"><code>version</code></em></code><a id="idm1807" class="indexterm"></a>
+package is available (where <em class="replaceable"><code>version</code></em> stands for the
+kernel version).
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="modules"></a>10.3. What special provisions does Debian provide to deal with modules?</h2></div></div></div><p>
+A configuration file containing modules to be manually loaded at boot time is
+kept at <code class="filename">/etc/modules</code>.  However, editing this file is
+rarely needed.
+</p><p>
+Other module configuration is kept in the <code class="filename">/etc/modprobe.d/</code>
+directory.  More information about the format of those files can be found in
+the
+<span class="citerefentry"><span class="refentrytitle">modprobe.conf</span>(5)</span>
+manual page.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="removeoldkernel"></a>10.4. Can I safely de-install an old kernel package, and if so, how?</h2></div></div></div><p>
+Yes.  The <span class="command"><strong>linux-image-<em class="replaceable"><code>NNN</code></em>.prerm</strong></span>
+script checks to see whether the kernel you are currently running is the same
+as the kernel you are trying to de-install.  Therefore you can remove unwanted
+kernel image packages using this command:
+</p><pre class="screen">
+dpkg --purge linux-image-<em class="replaceable"><code>NNN</code></em>
+</pre><p>
+(replace <em class="replaceable"><code>NNN</code></em> with your kernel version and revision
+number, of course)
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="moreinfo"></a>10.5. Where can I get more information about Linux packages for Debian?</h2></div></div></div><p>
+Further information is maintained in the <a class="ulink" href="https://kernel-team.pages.debian.net/kernel-handbook/" target="_top">Debian Linux Kernel
+Handbook</a>.
+</p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="uptodate.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="customizing.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 9. Keeping your Debian system up-to-date </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 11. Customizing your Debian GNU/Linux system</td></tr></table></div></body></html>

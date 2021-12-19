@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Chapter 6. The Debian FTP archives</title><link rel="stylesheet" type="text/css" href="debian.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="up" href="index.en.html" title="The Debian GNU/Linux FAQ" /><link rel="prev" href="software.en.html" title="Chapter 5. Software available in the Debian system" /><link rel="next" href="pkg-basics.en.html" title="Chapter 7. Basics of the Debian package management system" /><meta xmlns="" name="viewport" content="width=device-width, initial-scale=1" /><style xmlns="" type="text/css">
+      body {
+        background-repeat: no-repeat;
+        background-image: none;
+      }
+    </style></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 6. The Debian FTP archives</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="software.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="pkg-basics.en.html"><img src="images/next.png" alt="Next" /></a></td></tr></table><hr /></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="ftparchives"></a>Chapter 6. The Debian FTP archives</h1></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="section"><a href="ftparchives.en.html#dists">6.1. How many Debian distributions are there?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#codenames">6.2. What are all those names like etch, lenny, etc.?</a></span></dt><dd><dl><dt><span class="section"><a href="ftparchives.en.html#oldcodenames">6.2.1. Which other codenames have been used in the past?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#sourceforcodenames">6.2.2. Where do these codenames come from?</a></span></dt></dl></dd><dt><span class="section"><a href="ftparchives.en.html#sid">6.3. What about "sid"?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#stable">6.4. What does the stable directory contain?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#testing">6.5. What does the testing distribution contain?</a></span></dt><dd><dl><dt><span class="section"><a href="ftparchives.en.html#frozen">6.5.1. What about "testing"? How is it `frozen'?</a></span></dt></dl></dd><dt><span class="section"><a href="ftparchives.en.html#unstable">6.6. What does the unstable distribution contain?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#dirtree">6.7. What are all those directories at the Debian FTP archives?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#archsections">6.8. What are all those directories inside <code class="literal">dists/stable/main</code>?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#source">6.9. Where is the source code?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#pools">6.10. What's in the <code class="literal">pool</code> directory?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#incoming">6.11. What is "incoming"?</a></span></dt><dt><span class="section"><a href="ftparchives.en.html#ownrepository">6.12. How do I set up my own apt-able repository?</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="dists"></a>6.1. How many Debian distributions are there?</h2></div></div></div><p>
+There are three major distributions: the "stable" distribution, the "testing"
+distribution, and the "unstable" distribution.  The "testing" distribution is
+sometimes `frozen' (see <a class="xref" href="ftparchives.en.html#frozen" title="6.5.1. What about &quot;testing&quot;? How is it `frozen'?">Section 6.5.1, “What about "testing"? How is it `frozen'?”</a>).  Next to these, there is the
+"oldstable" distribution (that's just the one from before "stable"), and the
+"experimental" distribution.
+</p><p>
+Experimental is used for packages which are still being developed, and with a
+high risk of breaking your system.  It's used by developers who'd like to study
+and test bleeding edge software.  Users shouldn't be using packages from there,
+because they can be dangerous and harmful even for the most experienced people.
+</p><p>
+See <a class="xref" href="choosing.en.html" title="Chapter 3. Choosing a Debian distribution">Chapter 3, <em>Choosing a Debian distribution</em></a> for help when choosing a Debian distribution.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="codenames"></a>6.2. What are all those names like etch, lenny, etc.?</h2></div></div></div><p>
+They are just "codenames".  When a Debian distribution is in the development
+stage, it has no version number but a codename.  The purpose of these codenames
+is to make easier the mirroring of the Debian distributions (if a real
+directory like <code class="literal">unstable</code> suddenly changed its name to
+<code class="literal">stable</code>, a lot of stuff would have to be needlessly
+downloaded again).
+</p><p>
+Currently, <code class="literal">stable</code> is a symbolic link to
+<code class="literal">buster</code> (i.e. Debian GNU/Linux 10) and
+<code class="literal">testing</code> is a symbolic link to <code class="literal">bullseye</code>.
+This means that <code class="literal">buster</code> is the current stable distribution
+and <code class="literal">bullseye</code> is the current testing distribution.
+</p><p>
+<code class="literal">unstable</code> is a permanent symbolic link to
+<code class="literal">sid</code>, as <code class="literal">sid</code> is always the unstable
+distribution (see <a class="xref" href="ftparchives.en.html#sid" title="6.3. What about &quot;sid&quot;?">Section 6.3, “What about "sid"?”</a>).
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="oldcodenames"></a>6.2.1. Which other codenames have been used in the past?</h3></div></div></div><p>
+Aside <code class="literal">buster</code> and <code class="literal">bullseye</code>, other codenames
+that have been already used are: <code class="literal">buzz</code> for release 1.1,
+<code class="literal">rex</code> for release 1.2, <code class="literal">bo</code> for releases
+1.3.x, <code class="literal">hamm</code> for release 2.0, <code class="literal">slink</code> for
+release 2.1, <code class="literal">potato</code> for release 2.2,
+<code class="literal">woody</code> for release 3.0, <code class="literal">sarge</code> for release
+3.1, <code class="literal">etch</code> for release 4.0, <code class="literal">lenny</code> for
+release 5.0, <code class="literal">squeeze</code> for release 6.0,
+<code class="literal">wheezy</code> for release 7, <code class="literal">jessie</code> for release
+8, <code class="literal">stretch</code> for release 9.
+
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="sourceforcodenames"></a>6.2.2. Where do these codenames come from?</h3></div></div></div><p>
+So far they have been characters taken from the "Toy Story" movies by Pixar.
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<span class="emphasis"><em>buzz</em></span> (Debian 1.1) was the spaceman Buzz Lightyear,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>rex</em></span> (Debian 1.2) was the tyrannosaurus,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>bo</em></span> (Debian 1.3) was Bo Peep, the girl who took care of the sheep,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>hamm</em></span> (Debian 2.0) was the piggy bank,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>slink</em></span> (Debian 2.1) was Slinky Dog, the toy dog,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>potato</em></span> (Debian 2.2) was, of course, Mr. Potato,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>woody</em></span> (Debian 3.0) was the cowboy,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>sarge</em></span> (Debian 3.1) was the sergeant of the Green Plastic Army Men,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>etch</em></span> (Debian 4.0) was the toy whiteboard (Etch-a-Sketch),
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>lenny</em></span> (Debian 5.0) was the toy binoculars,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>squeeze</em></span> (Debian 6) was the name of the three-eyed aliens,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>wheezy</em></span> (Debian 7) was the rubber toy penguin with a red
+bow tie,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>jessie</em></span> (Debian 8) was the yodeling cowgirl,
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>stretch</em></span> (Debian 9) was the rubber toy octopus with suckers
+on her eight long arms.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>buster</em></span> (Debian 10) was Andy's pet dog.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>bullseye</em></span> (Debian 11) was Woody's wooden toyhorse.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>bookworm</em></span> (Debian 12) was a green toy worm with a built-in
+flashlight who loves reading books.
+</p></li><li class="listitem"><p>
+<span class="emphasis"><em>sid</em></span> was the evil neighbor kid next door who broke all
+toys.
+</p></li></ul></div><p>
+The <a class="ulink" href="https://lists.debian.org/debian-devel/1996/06/msg00515.html" target="_top">decision</a>
+of using Toy Story names was <a class="ulink" href="https://lists.debian.org/debian-user/1997/04/msg00011.html" target="_top">made</a>
+by Bruce Perens who was, at the time, the Debian Project Leader and was working
+also at Pixar, the company that produced the movies.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="sid"></a>6.3. What about "sid"?</h2></div></div></div><p>
+<span class="emphasis"><em>sid</em></span> or <span class="emphasis"><em>unstable</em></span> is the place where
+most of the packages are initially uploaded.  It will never be released
+directly, because packages which are to be released will first have to be
+included in <span class="emphasis"><em>testing</em></span>, in order to be released in
+<span class="emphasis"><em>stable</em></span> later on.  sid contains packages for both released
+and unreleased architectures.
+</p><p>
+The name "sid" also comes from the "Toy Story" animated motion picture: Sid was
+the boy next door who destroyed toys :-)
+</p><p>
+<a href="#ftn.idm821" class="footnote" id="idm821"><sup class="footnote">[2]</sup></a>
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="stable"></a>6.4. What does the stable directory contain?</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+stable/main/: This directory contains the packages which formally constitute
+the most recent release of the Debian GNU/Linux system.
+</p><p>
+These packages all comply with the <a class="ulink" href="https://www.debian.org/social_contract#guidelines" target="_top">Debian Free Software
+Guidelines</a>, and are all freely usable and distributable.
+</p></li><li class="listitem"><p>
+stable/non-free/: This directory contains packages distribution of which is
+restricted in a way that requires that distributors take careful account of the
+specified copyright requirements.
+</p><p>
+For example, some packages have licenses which prohibit commercial
+distribution.  Others can be redistributed but are in fact shareware and not
+free software.  The licenses of each of these packages must be studied, and
+possibly negotiated, before the packages are included in any redistribution
+(e.g., in a CD-ROM).
+</p></li><li class="listitem"><p>
+stable/contrib/: This directory contains packages which are DFSG-free and
+<span class="emphasis"><em>freely distributable</em></span> themselves, but somehow depend on a
+package that is <span class="emphasis"><em>not</em></span> freely distributable and thus
+available only in the non-free section.
+</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="testing"></a>6.5. What does the testing distribution contain?</h2></div></div></div><p>
+Packages are installed into the `testing' directory after they have undergone
+some degree of testing in <a class="link" href="ftparchives.en.html#unstable" title="6.6. What does the unstable distribution contain?">unstable</a>.
+</p><p>
+They must be in sync on all architectures where they have been built and
+mustn't have dependencies that make them uninstallable; they also need to have
+fewer release-critical bugs than the versions currently in unstable.  This way,
+we hope that `testing' is always close to being a release candidate.
+</p><p>
+More information about the status of "testing" in general and the individual
+packages is available at <a class="ulink" href="https://www.debian.org/devel/testing" target="_top">https://www.debian.org/devel/testing</a>.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="frozen"></a>6.5.1. What about "testing"? How is it `frozen'?</h3></div></div></div><p>
+When the "testing" distribution is mature enough, the release manager starts
+`freezing' it.  The normal propagation delays are increased to ensure that as
+few new bugs as possible from "unstable" enter "testing".
+</p><p>
+After a while, the "testing" distribution becomes truly `frozen'.  This means
+that all new packages that are to propagate to the "testing" are held back,
+unless they include release-critical bug fixes.  The "testing" distribution can
+also remain in such a deep freeze during the so-called `test cycles', when the
+release is imminent.
+</p><p>
+When a "testing" release becomes `frozen', "unstable" tends to partially freeze
+as well.  This is because developers are reluctant to upload radically new
+software to unstable, in case the frozen software in testing needs minor
+updates and to fix release critical bugs which keep testing from becoming
+"stable".
+</p><p>
+We keep a record of bugs in the "testing" distribution that can hold off a
+package from being released, or bugs that can hold back the whole release.  For
+details, please see <a class="ulink" href="https://www.debian.org/releases/testing/" target="_top">current testing release
+information</a>.
+</p><p>
+Once that bug count lowers to maximum acceptable values, the frozen "testing"
+distribution is declared "stable" and released with a version number.
+</p><p>
+The most important bug count is the "Release Critical" bug count, which can be
+followed in the <a class="ulink" href="https://bugs.debian.org/release-critical/" target="_top">Release-critical bug status
+page</a>.  A common release goal is <a class="ulink" href="https://wiki.debian.org/ReleaseGoals/NoRCBugs" target="_top">NoRCBugs</a> which means
+that the distribution should not have any bugs of severity critical, grave or
+serious.  The full list of issues considered critical can be found in the
+<a class="ulink" href="https://release.debian.org/testing/rc_policy.txt" target="_top">RC policy
+document</a>.
+</p><p>
+With each new release, the previous "stable" distribution becomes obsolete and
+moves to the archive.  For more information please see <a class="ulink" href="https://www.debian.org/distrib/archive" target="_top">Debian archive</a>.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="unstable"></a>6.6. What does the unstable distribution contain?</h2></div></div></div><p>
+The `unstable' directory contains a snapshot of the current development system.
+Users are welcome to use and test these packages, but are warned about their
+state of readiness.  The advantage of using the unstable distribution is that
+you are always up-to-date with the latest in GNU/Linux software industry, but
+if it breaks: you get to keep both parts :-)
+</p><p>
+There are also main, contrib and non-free subdirectories in `unstable',
+separated on the same criteria as in `stable'.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="dirtree"></a>6.7. What are all those directories at the Debian FTP archives?</h2></div></div></div><p>
+The software that has been packaged for Debian GNU/Linux is available in one of
+several directory trees on each Debian mirror site.
+</p><p>
+The <code class="literal">dists</code> directory is short for "distributions", and it is
+the canonical way to access the currently available Debian releases (and
+pre-releases).
+</p><p>
+The <code class="literal">pool</code> directory contains the actual packages, see <a class="xref" href="ftparchives.en.html#pools" title="6.10. What's in the pool directory?">Section 6.10, “What's in the <code class="literal">pool</code> directory?”</a>.
+</p><p>
+There are the following supplementary directories:
+</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="emphasis"><em>/tools/</em></span>:</span></dt><dd><p>
+DOS utilities for creating boot disks, partitioning your disk drive,
+compressing/decompressing files, and booting Linux.
+</p></dd><dt><span class="term"><span class="emphasis"><em>/doc/</em></span>:</span></dt><dd><p>
+The basic Debian documentation, such as this FAQ, the bug reporting system
+instructions, etc.
+</p></dd><dt><span class="term"><span class="emphasis"><em>/indices/</em></span>:</span></dt><dd><p>
+various indices of the site (the Maintainers file and the override files).
+</p></dd><dt><span class="term"><span class="emphasis"><em>/project/</em></span>:</span></dt><dd><p>
+mostly developer-only materials and some miscellaneous files.
+</p></dd></dl></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="archsections"></a>6.8. What are all those directories inside <code class="literal">dists/stable/main</code>?</h2></div></div></div><p>
+Within each of the major directory trees<a href="#ftn.idm899" class="footnote" id="idm899"><sup class="footnote">[3]</sup></a>, there are
+three sets of subdirectories containing index files.
+</p><p>
+There's one set of
+<code class="literal">binary-<em class="replaceable"><code>something</code></em></code> subdirectories
+which contain index files for binary packages of each available computer
+architecture, for example <code class="literal">binary-i386</code> for packages which
+execute on Intel x86 PC machines or <code class="literal">binary-sparc</code> for
+packages which execute on Sun SPARCStations.
+</p><p>
+The complete list of available architectures for each release is available at
+<a class="ulink" href="https://www.debian.org/releases" target="_top">the release's web page</a>.
+For the current release, please see <a class="xref" href="compatibility.en.html#arches" title="4.1. On what hardware architectures/systems does Debian GNU/Linux run?">Section 4.1, “On what hardware architectures/systems does Debian GNU/Linux run?”</a>.
+</p><p>
+The index files in binary-* are called Packages(.gz, .bz2) and they include a
+summary of each binary package that is included in that distribution.  The
+actual binary packages reside in the top level <a class="link" href="ftparchives.en.html#pools" title="6.10. What's in the pool directory?"><code class="literal">pool</code> directory</a>.
+</p><p>
+Furthermore, there's a subdirectory called source/ which contains index files
+for source packages included in the distribution.  The index file is called
+Sources(.gz, .bz2).
+</p><p>
+Last but not least, there's a set of subdirectories meant for the installation
+system index files, they are at
+<code class="literal">debian-installer/binary-<em class="replaceable"><code>architecture</code></em></code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="source"></a>6.9. Where is the source code?</h2></div></div></div><p>
+Source code is included for everything in the Debian system.  Moreover, the
+license terms of most programs in the system <span class="emphasis"><em>require</em></span> that
+source code be distributed along with the programs, or that an offer to provide
+the source code accompany the programs.
+</p><p>
+The source code is distributed in the <code class="literal">pool</code> directory (see
+<a class="xref" href="ftparchives.en.html#pools" title="6.10. What's in the pool directory?">Section 6.10, “What's in the <code class="literal">pool</code> directory?”</a>) together with all the architecture-specific binary
+directories.  To retrieve the source code without having to be familiar with
+the structure of the FTP archive, try a command like <code class="literal">apt-get source
+mypackagename</code>.
+</p><p>
+Due to restrictions in their licenses, source code may or may not be available
+for packages in the "contrib" and "non-free" areas, which are not formally part
+of the Debian system.  In some cases only sourceless "binary blobs" can be
+distributed (see for instance <code class="literal">firmware-misc-nonfree</code>); in
+other cases the license prohibits the distribution of prebuilt binaries, but
+does allow packages of source code which users can compile locally (see
+<code class="literal">broadcom-sta-dkms</code>).
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="pools"></a>6.10. What's in the <code class="literal">pool</code> directory?</h2></div></div></div><p>
+Packages are kept in a large `pool', structured according to the name of the
+source package.  To make this manageable, the pool is subdivided by section
+(`main', `contrib' and `non-free') and by the first letter of the source
+package name.  These directories contain several files: the binary packages for
+each architecture, and the source packages from which the binary packages were
+generated.
+</p><p>
+You can find out where each package is placed by executing a command like
+<code class="literal">apt-cache showsrc mypackagename</code> and looking at the
+`Directory:' line.  For example, the <code class="literal">apache</code> packages are
+stored in <code class="literal">pool/main/a/apache/</code>.
+</p><p>
+Additionally, since there are so many <code class="literal">lib*</code> packages, these
+are treated specially: for instance, libpaper packages are stored in
+<code class="literal">pool/main/libp/libpaper/</code>.
+</p><p>
+<a href="#ftn.idm943" class="footnote" id="idm943"><sup class="footnote">[4]</sup></a>
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="incoming"></a>6.11. What is "incoming"?</h2></div></div></div><p>
+After a developer uploads a package, it stays for a short while in the
+"incoming" directory before it is checked that it's genuine and allowed into
+the archive.
+</p><p>
+Usually nobody should install things from this place.  However, in some rare
+cases of emergency, the incoming directory is available at <a class="ulink" href="https://incoming.debian.org/" target="_top">https://incoming.debian.org/</a>.  You can
+manually fetch packages, check the GPG signature and MD5sums in the .changes
+and .dsc files, and then install them.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a id="ownrepository"></a>6.12. How do I set up my own apt-able repository?</h2></div></div></div><p>
+If you have built some private Debian packages which you'd like to install
+using the standard Debian package management tools, you can set up your own
+apt-able package archive.  This is also useful if you'd like to share your
+Debian packages while these are not distributed by the Debian project.
+Instructions on how to do this are given on the <a class="ulink" href="https://wiki.debian.org/HowToSetupADebianRepository" target="_top">Debian Wiki</a>.
+</p></div><div class="footnotes"><br /><hr width="100" align="left" /><div id="ftn.idm821" class="footnote"><p><a href="#idm821" class="para"><sup class="para">[2] </sup></a> When the present-day sid did not exist, the FTP site
+organization had one major flaw: there was an assumption that when an
+architecture is created in the current unstable, it will be released when that
+distribution becomes the new stable.  For many architectures that isn't the
+case, with the result that those directories had to be moved at release time.
+This was impractical because the move would chew up lots of bandwidth.  </p><p> The archive administrators worked around this problem for several years
+by placing binaries for unreleased architectures in a special directory called
+"sid".  For those architectures not yet released, the first time they were
+released there was a link from the current stable to sid, and from then on they
+were created inside the unstable tree as normal.  This layout was somewhat
+confusing to users.  </p><p> With the advent of package pools (see <a class="xref" href="ftparchives.en.html#pools" title="6.10. What's in the pool directory?">Section 6.10, “What's in the <code class="literal">pool</code> directory?”</a>), binary packages began to be stored in a canonical location
+in the pool, regardless of the distribution, so releasing a distribution no
+longer causes large bandwidth consumption on the mirrors (there is, however, a
+lot of gradual bandwidth consumption throughout the development process).
+</p></div><div id="ftn.idm899" class="footnote"><p><a href="#idm899" class="para"><sup class="para">[3] </sup></a>
+<code class="literal">dists/stable/main</code>, <code class="literal">dists/stable/contrib</code>,
+<code class="literal">dists/stable/non-free</code>, and
+<code class="literal">dists/unstable/main/</code>, etc.  </p></div><div id="ftn.idm943" class="footnote"><p><a href="#idm943" class="para"><sup class="para">[4] </sup></a> Historically, packages were kept in the subdirectory of
+<code class="literal">dists</code> corresponding to which distribution contained them.
+This turned out to cause various problems, such as large bandwidth consumption
+on mirrors when major changes were made.  This was fixed with the introduction
+of the package pool.  </p><p> The <code class="literal">dists</code> directories
+are still used for the index files used by programs like
+<code class="literal">apt</code>.  </p></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="software.en.html"><img src="images/prev.png" alt="Prev" /></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="pkg-basics.en.html"><img src="images/next.png" alt="Next" /></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 5. Software available in the Debian system </td><td width="20%" align="center"><a accesskey="h" href="index.en.html"><img src="images/home.png" alt="Home" /></a></td><td width="40%" align="right" valign="top"> Chapter 7. Basics of the Debian package management system</td></tr></table></div></body></html>
