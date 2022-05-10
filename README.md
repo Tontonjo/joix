@@ -69,6 +69,8 @@ The installation and startup will not allow you to change anything, but once it 
 - Configure all the apps you want / need
 
 ### Raspberry Pi  
+
+Warning: Raspi 3 is very slow with Jellyfin and flarsolverr was reported to cause timeout due to slowness - that's why they're disabled by default
 - Write an raspi OS lite image on your SD Card
 - Create a file named "ssh" in boot partition
 - Boot your raspberry and find his IP adress
@@ -83,6 +85,10 @@ sudo bash pipostinstall.sh
 - If you want to try jellyfin:  
 ```shell
 sudo docker start jellyfin
+```  
+- If you want to try flaresolverr:  
+```shell
+sudo docker start flaresolverr
 ```  
 ## After the installation you should:
 - Configure the applications to use the path specified at "What's in the box"
