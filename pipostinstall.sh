@@ -124,6 +124,7 @@ echo "- Feel free to try it by yourself if you want with the following command: 
 echo "- sudo docker start jellyfin"
 
 docker stop jellyfin
+docker stop flaresolverr
 
 echo "- Waiting 5 minutes for containers to start before rebooting"
 
