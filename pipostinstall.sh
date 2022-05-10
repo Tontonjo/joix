@@ -2,6 +2,7 @@
 
 # Tonton Jo - 2021
 # Version 1.0
+# Version 1.1: disable flaresolverr
 
 # This script has to be ran on a brand new raspbian-lite installation
 # sudo bash pipostinstallation.sh
