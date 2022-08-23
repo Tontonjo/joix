@@ -1,0 +1,122 @@
+# Tonton Jo - 2021
+
+# Version 1.0 - Initial release
+# Version 1.1 - New linuxserver registries
+# Version 1.2 - Change jackett to prowlarr
+
+version: "2.1"
+services:
+  deluge:
+    image: lscr.io/linuxserver/deluge
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/deluge:/config
+      - /opt/joix/downloads:/downloads
+    ports:
+      - 8112:8112
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped  
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    environment:
+      - WATCHTOWER_SCHEDULE=0 0 4 * * *
+      - WATCHTOWER_CLEANUP="true"
+      - TZ="Europe/paris"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/jellyfin:/config
+      - /opt/joix/media/:/media
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+      - 1900:1900/udp #optional
+    restart: unless-stopped
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/radarr:/config
+      - /opt/joix/media/movies:/movies #optional
+      - /opt/joix/downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+  sonarr:
+    image: lscr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/sonarr:/config
+      - /opt/joix/media/tvshows:/tv #optional
+      - /opt/joix/downloads:/downloads #optional
+    ports:
+      -  8989:8989
+    restart: unless-stopped
+  lidarr:
+    image: lscr.io/linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/lidarr:/config
+      - /opt/joix/media/music:/music #optional
+      - /opt/joix/downloads:/downloads #optional
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=info
+      - CAPTCHA_SOLVER=harvester
+      - HARVESTER_ENDPOINT=https://127.0.0.1:5000/token
+    ports:
+      - 8191:8191
+    restart: unless-stopped
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:develop
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+    volumes:
+      - /etc/joix/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+  navidrome:
+    image: deluan/navidrome
+    container_name: navidrome
+    volumes:
+      - /opt/joix/media/music:/music
+      - /etc/joix/navidrome:/data
+    ports:
+      - 4533:4533
+    restart: unless-stopped
