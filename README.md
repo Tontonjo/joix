@@ -124,7 +124,7 @@ if [[ $(id -u) -ne 0 ]] ; then sudo wget -q -O /etc/joix/joix.yml https://github
 ```  
 ### Update stack:
 ```shell
-if [[ $(id -u) -ne 0 ]] ; then sudo docker-compose -f /etc/joix/joix.yml -p joix up -d ; else docker-compose -f /etc/joix/joix.yml -p joix up -d ; fi
+if [[ $(id -u) -ne 0 ]] ; then sudo docker-compose -f /etc/joix/joix.yml -p joix up --remove-orphans -d ; else docker-compose -f /etc/joix/joix.yml -p joix up --remove-orphans -d ; fi
 ```  
 
 ## Add other containers
